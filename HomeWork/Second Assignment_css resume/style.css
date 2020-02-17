@@ -1,0 +1,33 @@
+body {
+  margin: 10% 25%;
+}
+
+.header {
+  font-size: 3em;
+}
+
+.img-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-column: 1fr 1fr 1fr;
+}
+.name {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  margin-top: -2.3em;
+  width: 3.5em;
+}
+.self-intro {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9em;
+}
+
+.position {
+  font-family: "Merriweather", serif;
+  font-size: 1em;
+}
+.footer {
+  margin-top: 10em;
+}
