@@ -21,7 +21,7 @@ let fruit = {kind: "orange",
              tasty: true, };
 let theFruits = [
     {kind: "orange",
-    color: "organge",
+    color: "orange",
     quantity: 19,
     tasty: true},
 
