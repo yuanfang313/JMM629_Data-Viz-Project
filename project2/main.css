@@ -1,0 +1,27 @@
+.architect {
+  background-color: red;
+  width: 600px;
+  height: 200px;
+  margin-bottom: 5%;
+}
+
+img {
+  width: 120px;
+  margin: 10px 10px;
+  filter: grayscale(1);
+}
+
+img:hover {
+  filter: grayscale(0);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#square {
+  width: 120px;
+  height: 120px;
+  background-color: red;
+}
+
+#square:hover {
+  background-color: blue;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>People Who Won The Pritzker Architecture</title>
+  </head>
+  <body>
+    <section id="header">
+      <h1>People Who Won The Pritzker Architecture</h1>
+    </section>
+    <section id="mainContents">
+      <div class="grid-container">
+        <div id="portraitsContainer" class="grid-item portraits">
+          <audio id="sound" src="piano_Ab4.wav"></audio>
+        </div>
+        <div id="filtersContainer" class="grid-item filters">
+          <li class="filter">
+            <h3 class="filterLabel">
+              Gender:
+              <select id="genderSelect" class="selectBox"></select>
+            </h3>
+          </li>
+          <li class="filter">
+            <h3 class="filterLabel">
+              Nationality:
+              <select id="nationSelect" class="selectBox"></select>
+            </h3>
+          </li>
+          <li class="filter">
+            <h3 class="filterLabel">
+              Glass?
+              <select id="glassSelect" class="selectBox"></select>
+            </h3>
+          </li>
+        </div>
+      </div>
+    </section>
+  </body>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="main.js"></script>
+</html>
