@@ -15,15 +15,15 @@ let section = portraitsContainer
     .append("ul")
     .attr("id", "section");
 
-let cards = section.selectAll('li')
+let architect = section.selectAll('li')
     .data(nest)
     .enter()
     .append('li')
     .attr("id", "architect");
 
-console.log(cards)
+console.log(architect)
 
-let pictures = cards.selectAll('img')
+let pictures = architect.selectAll('img')
     .data(function(d){
     return d.values;
 })

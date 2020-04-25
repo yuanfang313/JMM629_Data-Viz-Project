@@ -1,0 +1,11 @@
+#myImg {
+  position: absolute;
+}
+
+#myTooltip {
+  position: relative;
+  top: 100px;
+  height: 50px;
+  background-color: white;
+  opacity: 0;
+}
