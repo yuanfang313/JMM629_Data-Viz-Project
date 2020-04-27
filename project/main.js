@@ -9,7 +9,6 @@ let nest = d3.nest()
 })
     .entries(dataset);
 
-console.log(nest)
 
 let section = portraitsContainer
     .append("ul")
@@ -21,43 +20,109 @@ let architect = section.selectAll('li')
     .append('li')
     .attr("id", "architect");
 
-console.log(architect)
-
 let pictures = architect.selectAll('img')
     .data(function(d){
     return d.values;
 })
     .enter()
     .append('img')
-    .attr("src", (d) => "img/" + d.img + ".png");
+    .attr("class", "photo")
+    .attr("src", (d) => "img/photo/" + d.img + ".png")
+    .on("mouseenter", ShowTooltip)
+    .on("mouseout", DismissTooltip);
 
+
+    const index = d => d.index;
+    function ShowTooltip(d){
+        d3.select("#tooltip" + index(d)).style("opacity", 0.9);
+    }
+    function DismissTooltip(d){
+        d3.select("#tooltip" + index(d)).style("opacity", 0);
+    }
+
+// toggle genderBtn
+    $("#genderBtn")
+    .on("click", onClickGenderBtn);
+    
+    function onClickGenderBtn(){
+        pictures
+        .attr("class", "otherProperty gender")
+        .attr("src", (d) => "img/gender/" + d.gender + ".png");
+    }
+// toggle nationBtn
+
+    $("#nationBtn")
+    .on("click", onClickNationBtn);
+
+    function onClickNationBtn(){
+        pictures
+        .attr("class", "otherProperty nation")
+        .attr("src", (d) => "img/nation/" + d.nation + ".png");
+    }
+    $("#glassBtn")
+    .on("click", onClickGlassBtn);
+
+    function onClickGlassBtn(){
+        pictures
+        .attr("class", "otherProperty glass")
+        .attr("src", (d) => "img/glass/" + d.glass + ".png");
+    }
+// toggle resetBtn
+    $("#resetBtn")
+    .on("click", onClickRestBtn);
+
+    function onClickRestBtn(){
+        pictures
+        .attr("class", "photo")
+        .attr("src", (d) => "img/photo/" + d.img + ".png");
+    }
+
+console.log(nest)
+// add a group to each architect
+let tooltip = architect
+    .append('g')
+    .attr("id", "tooltip")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+    $("#section img")
+    .each(function(i){
+    $("#tooltip")
+    .attr("id", "tooltip" + i)
+    .appendTo($(this).parent());
+    });
+
+    
+
+// add name to tooltip
+let tooltipName = tooltip
+    .append('div')
+    .attr("class", "tooltipName");
+
+let name = tooltipName.selectAll('span')
+    .data(function(d){
+        return d.values;
+    })
+    .enter()
+    .append('span')
+    .attr("id", "name")
+    .text((d) => d.name)
+// add year to tooltip
+let tooltipYear = tooltip
+    .append('div')
+    .attr("class", "tooltipYear")
+
+let year = tooltipYear.selectAll('span')
+    .data(function(d){
+        return d.values;
+    })
+    .enter()
+    .append('span')
+    .attr("id", "year")
+    .text((d) => d.year + "  Laureate");
+    
 console.log(pictures)
 
-
-// add sound to each img
-$("#section img")
-    .each(function(i){
-            $("#sound")
-              .clone()
-              .attr("id", "sound" + i)
-              .appendTo($(this).parent());
-        
-        $(this).data("piano_Ab4", i);
-    })
-    .mouseenter(function() {
-        $("#sound" + $(this).data("piano_Ab4"))[0].play();
-      });
-
- // add options to genderSelectBox     
-var allGender = ["male", "female"]
-
-let genderSelectBox = d3.select('#genderSelect')
-    .selectAll('option')
-    .data(allGender)
-    .enter()
-    .append('option')
-    .text(function(d){return d})
-    .attr("value", function(d){return d});
 });
 
 

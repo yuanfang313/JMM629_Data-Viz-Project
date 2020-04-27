@@ -1,49 +1,49 @@
-year,name,img,gender
-2020,Yvonne Farrell ,2020_2,Female
-2020,Shelley McNamara,2020_1,Female
-2019,Arata Isozaki,2019,Male
-2018,B.V.Doshi,2018,Male
-2017,Rafael Aranda ,2017_1,Male
-2017,Carme Pigem,2017_2,Female
-2017,Ramon Vilalta,2017_3,Male
-2016,Alejandro Aravena,2016,Male
-2015,Frei Otto,2015,Male
-2014,Shigeru Ban,2014,Male
-2013,Toyo Ito,2013,Male
-2012,Wang Shu,2012,Male
-2011,Eduardo Souto de Moura,2011,Male
-2010,Kazuyo Sejim ,2010_1,Female
-2010,Ryue Nishizawa,2010_2,Male
-2009,Peter Zumthor,2009,Male
-2008,Jean Nouvel,2008,Male
-2007,Richard Rogers,2007,Male
-2006,Paulo Mendes da Rocha,2006,Male
-2005,Thom Mayne,2005,Male
-2004,Zaha Hadid,2004,Female
-2003,Jorn Utzon,2003,Male
-2002,Glenn Murcutt,2002,Male
-2001,Jacques Herzog,2001_1,Male
-2001,Pierre de Meuron,2001_2,Male
-2000,Rem Koolhaas,2000,Male
-1999,Norman Foster,1999,Male
-1998,Renzo Piano,1998,Male
-1997,Sverre Fehn,1997,Male
-1996,Rafael Moneo,1996,Male
-1995,Tadao Ando,1995,Male
-1994,Christian de Portzamparc,1994,Male
-1993,Fumihiko Maki,1993,Male
-1992,Alvaro Siza Vieira,1992,Male
-1991,Robert Venturi,1991,Male
-1990,Aldo Rossi,1990,Male
-1989,Frank Gehry,1989,Male
-1988,Gordon Bunshaft,1988_1,Male
-1988,Oscar Niemeyer,1988_2,Male
-1987,Kenzo Tange,1987,Male
-1986,Gottfried Bohm,1986,Male
-1985,Hans Hollein,1985,Male
-1984,Richard Meier,1984,Male
-1983,Ieoh Ming Pei,1983,Male
-1982,Kevin Roche,1982,Male
-1981,James Stirling,1981,Male
-1980,Luis Barragan,1980,Male
-1979,Philip Johnson,1979,Male
+index,year,name,img,gender,nation,glass
+0,2020,Yvonne Farrell ,2020_2,Female,Ireland,eye
+1,2020,Shelley McNamara,2020_1,Female,Ireland,eye
+2,2019,Arata Isozaki,2019,Male,Japan,eye
+3,2018,B.V.Doshi,2018,Male,India,glass
+4,2017,Rafael Aranda ,2017_1,Male,Spain,eye
+5,2017,Carme Pigem,2017_2,Female,Spain,eye
+6,2017,Ramon Vilalta,2017_3,Male,Spain,eye
+7,2016,Alejandro Aravena,2016,Male,Chile,eye
+8,2015,Frei Otto,2015,Male,Germany,eye
+9,2014,Shigeru Ban,2014,Male,Japan,eye
+10,2013,Toyo Ito,2013,Male,Japan,glass
+11,2012,Wang Shu,2012,Male,China,glass
+12,2011,Eduardo Souto de Moura,2011,Male,Portugal,glass
+13,2010,Kazuyo Sejim ,2010_1,Female,Japan,glass
+14,2010,Ryue Nishizawa,2010_2,Male,Japan,eye
+15,2009,Peter Zumthor,2009,Male,Switzerland,eye
+16,2008,Jean Nouvel,2008,Male,France,eye
+17,2007,Richard Rogers,2007,Male,Italy (United Kingdom),eye
+18,2006,Paulo Mendes da Rocha,2006,Male,Brazil,eye
+19,2005,Thom Mayne,2005,Male,United States,glass
+20,2004,Zaha Hadid,2004,Female,Iraq (United Kingdom),eye
+21,2003,Jorn Utzon,2003,Male,Denmark,eye
+22,2002,Glenn Murcutt,2002,Male,Australia,glass
+23,2001,Jacques Herzog,2001_1,Male,Switzerland,eye
+24,2001,Pierre de Meuron,2001_2,Male,Switzerland,eye
+25,2000,Rem Koolhaas,2000,Male,Netherland,eye
+26,1999,Norman Foster,1999,Male,United Kingdom,eye
+27,1998,Renzo Piano,1998,Male,Italy,eye
+28,1997,Sverre Fehn,1997,Male,Norway,eye
+29,1996,Rafael Moneo,1996,Male,Spain,glass
+30,1995,Tadao Ando,1995,Male,Japan,eye
+31,1994,Christian de Portzamparc,1994,Male,France,eye
+32,1993,Fumihiko Maki,1993,Male,Japan,glass
+33,1992,Alvaro Siza Vieira,1992,Male,Portugal,glass
+34,1991,Robert Venturi,1991,Male,United States,glass
+35,1990,Aldo Rossi,1990,Male,Italy,eye
+36,1989,Frank Gehry,1989,Male,United States (Canada),glass
+37,1988,Gordon Bunshaft,1988_1,Male,United States,eye
+38,1988,Oscar Niemeyer,1988_2,Male,Brazil,eye
+39,1987,Kenzo Tange,1987,Male,Japan,eye
+40,1986,Gottfried Bohm,1986,Male,Germany,glass
+41,1985,Hans Hollein,1985,Male,Austria,eye
+42,1984,Richard Meier,1984,Male,United States,glass
+43,1983,Ieoh Ming Pei,1983,Male,United States (China),glass
+44,1982,Kevin Roche,1982,Male,United States (Ireland),eye
+45,1981,James Stirling,1981,Male,United Kingdom,eye
+46,1980,Luis Barragan,1980,Male,Mexico,glass
+47,1979,Philip Johnson,1979,Male,United States,glass

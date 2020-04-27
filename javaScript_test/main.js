@@ -10,6 +10,7 @@ function myMouseover(){
     } else {
       h++;
       elem.style.width = h + "px";
+      elem.style.fontSize = 2 + "rem";
       elem.style.opacity = 0.5;
     }
     }   

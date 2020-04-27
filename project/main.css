@@ -13,54 +13,88 @@
   margin: 1rem 1rem;
 }
 
-#filtersContainer {
-  margin: 10% 5%;
+.Btn {
+  display: block;
+  padding: 5px 10px 5px;
 }
 
-.filterLabel {
-  display: inline;
-}
-
-.filter {
+.resetBtn {
   margin-top: 10px;
-  margin-left: 15px;
-}
-.selectBox {
-  display: inline;
-  margin-left: 35px;
 }
 
 #architect {
   display: inline;
 }
 
+.tooltip {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 210px;
+  border: 1px solid rgb(48, 48, 48);
+  border-right: 8px solid rgb(48, 48, 48);
+  border-bottom: 3px solid rgb(48, 48, 48);
+  background: white;
+  text-align: center;
+  transition: all 0.2s ease-out;
+  pointer-events: none;
+  z-index: 10;
+}
+.tooltipName {
+  margin-top: 5px;
+  font-family: "Cairo", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.tooltipYear {
+  margin-bottom: 5px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  color: rgb(173, 4, 4);
+}
+
 img {
   display: inline;
   max-width: 120px;
   margin: 10px 10px;
+}
+.photo {
   filter: grayscale(1);
   z-index: 1;
 }
 
-img:hover {
+.photo:hover {
   position: relative;
   filter: grayscale(0);
   transform: scale(1.7);
-  box-shadow: 0px 0px 20px 25px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(241, 71, 71, 0.9);
+  border-left: 10px solid rgba(241, 71, 71, 0.6);
+  border-top: 5px solid rgba(241, 71, 71, 0.6);
   z-index: 2;
 }
-
-select {
-  border: 1px solid #ccc;
-  width: 120px;
-  border-radius: 3px;
-  overflow: hidden;
-  background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
-  font-size: 1rem;
+.photo:hover ~ .tooltip {
+  box-shadow: 20px 10px 0px 3px rgba(241, 71, 71, 0.9);
+  transform: skew(-10deg);
 }
 
-.test {
-  max-width: 55rem;
-  height: 100px;
-  background-color: red;
+.otherProperty {
+  filter: grayscale(0);
+}
+
+.otherProperty:hover {
+  transform: scale(1);
+  border-style: groove;
+  border: 2px solid rgb(3, 242, 250);
+}
+
+.otherProperty:hover ~ .tooltip {
+  top: 6px;
+  left: -35px;
+  width: 210px;
+  background: rgba(255, 255, 255, 0.8);
+  transform: skew(0deg);
+}
+
+#architect {
+  position: relative;
 }
