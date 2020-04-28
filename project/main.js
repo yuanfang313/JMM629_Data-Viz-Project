@@ -11,13 +11,13 @@ let nest = d3.nest()
 
 
 let section = portraitsContainer
-    .append("ul")
+    .append("g")
     .attr("id", "section");
 
-let architect = section.selectAll('li')
+let architect = section.selectAll('g')
     .data(nest)
     .enter()
-    .append('li')
+    .append('g')
     .attr("id", "architect");
 
 let pictures = architect.selectAll('img')

@@ -1,25 +1,54 @@
 #header {
-  margin: 2% 10%;
+  margin: 2% 5%;
 }
 
-.grid-container {
-  margin: 1% 1%;
+.grid-container.header {
+  display: grid;
+  grid-template-columns: 10% 90%;
+}
+.grid-item.text {
+  margin-left: 40px;
+}
+.titleImg {
+  width: 120px;
+}
+.titleText {
+  margin-top: 15px;
+  font-family: "Squada One", cursive;
+  font-weight: 500;
+  font-size: 3rem;
+  color: #678bc7;
+}
+.titleImportant {
+  color: rgb(30, 30, 30);
+}
+.intro {
+  padding-right: 15%;
+}
+
+.grid-container.main {
   display: grid;
   grid-template-columns: 80% 20%;
 }
 
 .grid-item {
-  background-color: bisque;
-  margin: 1rem 1rem;
+  background-color: white;
+}
+.grid-item.portraits {
+  padding: 2% 3%;
 }
 
 .Btn {
   display: block;
-  padding: 5px 10px 5px;
+  /*margin-left: 35%;*/
+  width: 100%;
+  height: 5%;
+  font-family: "Saira", sans-serif;
+  font-size: 0.85rem;
 }
 
 .resetBtn {
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 #architect {
@@ -30,7 +59,7 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 210px;
+  width: 150px;
   border: 1px solid rgb(48, 48, 48);
   border-right: 8px solid rgb(48, 48, 48);
   border-bottom: 3px solid rgb(48, 48, 48);
@@ -40,24 +69,33 @@
   pointer-events: none;
   z-index: 10;
 }
+
 .tooltipName {
   margin-top: 5px;
   font-family: "Cairo", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 .tooltipYear {
   margin-bottom: 5px;
   font-family: "Rajdhani", sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: rgb(173, 4, 4);
 }
-
 img {
   display: inline;
-  max-width: 120px;
-  margin: 10px 10px;
+  width: 90px;
+  margin: 5px;
 }
+.updatedImg {
+  margin: 7% 5% 10%;
+  height: 40%;
+  background-color: gray;
+}
+.updateText {
+  background-color: gray;
+}
+
 .photo {
   filter: grayscale(1);
   z-index: 1;
@@ -66,7 +104,7 @@ img {
 .photo:hover {
   position: relative;
   filter: grayscale(0);
-  transform: scale(1.7);
+  transform: scale(1.5);
   border: 2px solid rgba(241, 71, 71, 0.9);
   border-left: 10px solid rgba(241, 71, 71, 0.6);
   border-top: 5px solid rgba(241, 71, 71, 0.6);
@@ -79,6 +117,7 @@ img {
 
 .otherProperty {
   filter: grayscale(0);
+  border: 1px solid rgb(180, 180, 180);
 }
 
 .otherProperty:hover {
@@ -89,12 +128,52 @@ img {
 
 .otherProperty:hover ~ .tooltip {
   top: 6px;
-  left: -35px;
-  width: 210px;
+  left: -25px;
   background: rgba(255, 255, 255, 0.8);
   transform: skew(0deg);
 }
 
 #architect {
   position: relative;
+}
+.test {
+  width: 1424px;
+  height: 50px;
+  background-color: red;
+}
+
+@media only screen and (min-width: 1441px) {
+  .grid-item.portraits {
+    padding: 2% 4.2%;
+  }
+  .tooltip {
+    width: 180px;
+  }
+  .tooltipName {
+    font-size: 1.2rem;
+  }
+  .tooltipYear {
+    font-size: 1.1rem;
+  }
+  img {
+    width: 120px;
+    margin: 5px;
+  }
+  .titleImg {
+    width: 160px;
+  }
+  .Btn {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  #header {
+    margin: 1% 5%;
+  }
+  .grid-item.portraits {
+    padding: 2% 4%;
+  }
+  img {
+    margin: 8px;
+  }
 }
