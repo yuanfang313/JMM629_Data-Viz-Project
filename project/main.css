@@ -1,11 +1,24 @@
-#header {
-  margin: 2% 5%;
+#body {
+  margin-bottom: 0px;
 }
-
 .grid-container.header {
   display: grid;
   grid-template-columns: 10% 90%;
+  margin-left: 2%;
 }
+.grid-container.main {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  margin-bottom: 0rem;
+}
+.grid-item.portraits {
+  padding: 4% 3%;
+  padding-bottom: 0rem;
+}
+.grid-item.filter {
+  padding-top: 3%;
+}
+
 .grid-item.text {
   margin-left: 40px;
 }
@@ -13,7 +26,8 @@
   width: 120px;
 }
 .titleText {
-  margin-top: 15px;
+  margin-top: 0px;
+  margin-bottom: 25px;
   font-family: "Squada One", cursive;
   font-weight: 500;
   font-size: 3rem;
@@ -23,19 +37,12 @@
   color: rgb(30, 30, 30);
 }
 .intro {
-  padding-right: 15%;
-}
-
-.grid-container.main {
-  display: grid;
-  grid-template-columns: 80% 20%;
+  padding-right: 10%;
+  margin-bottom: 0rem;
 }
 
 .grid-item {
   background-color: white;
-}
-.grid-item.portraits {
-  padding: 2% 3%;
 }
 
 .Btn {
@@ -87,9 +94,15 @@ img {
   width: 90px;
   margin: 5px;
 }
+.divOfAgeImg {
+  text-align: center;
+}
+.age {
+  width: 90%;
+}
 .updatedImg {
-  margin: 7% 5% 10%;
-  height: 40%;
+  margin: 0% 5% 10%;
+  height: 250px;
   background-color: gray;
 }
 .updateText {
@@ -144,7 +157,10 @@ img {
 
 @media only screen and (min-width: 1441px) {
   .grid-item.portraits {
-    padding: 2% 4.2%;
+    padding: 2% 5%;
+  }
+  .titleText {
+    margin-top: 25px;
   }
   .tooltip {
     width: 180px;
@@ -158,6 +174,16 @@ img {
   img {
     width: 120px;
     margin: 5px;
+  }
+  .updatedImg {
+    margin: 0% 5% 10%;
+    height: 300px;
+  }
+  .divOfAgeImg {
+    text-align: center;
+  }
+  .age {
+    width: 89%;
   }
   .titleImg {
     width: 160px;
