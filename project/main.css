@@ -15,8 +15,9 @@
   padding: 4% 3%;
   padding-bottom: 0rem;
 }
-.grid-item.filter {
-  padding-top: 3%;
+.grid-item.filters {
+  margin-top: 10%;
+  margin-right: 5%;
 }
 
 .grid-item.text {
@@ -39,6 +40,8 @@
 .intro {
   padding-right: 10%;
   margin-bottom: 0rem;
+  font-family: "Ubuntu", sans-serif;
+  line-height: 1.5rem;
 }
 
 .grid-item {
@@ -55,7 +58,7 @@
 }
 
 .resetBtn {
-  margin-top: 0px;
+  background-color: rgb(255, 217, 0);
 }
 
 #architect {
@@ -100,10 +103,13 @@ img {
 .age {
   width: 90%;
 }
-.updatedImg {
-  margin: 0% 5% 10%;
-  height: 250px;
-  background-color: gray;
+.divOfUpdatedImg {
+  width: 100%;
+  /* height: 250px; */
+}
+#updatedImg {
+  width: 95%;
+  border: 1px dashed grey;
 }
 .updateText {
   background-color: gray;
@@ -175,9 +181,8 @@ img {
     width: 120px;
     margin: 5px;
   }
-  .updatedImg {
-    margin: 0% 5% 10%;
-    height: 300px;
+  .divOfUpdatedImg {
+    width: 100%;
   }
   .divOfAgeImg {
     text-align: center;

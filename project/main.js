@@ -12,8 +12,7 @@ let nest = d3.nest()
 let section = portraitsContainer
     .append("div")
     .attr("id", "section");
-
-let architect = section.selectAll('div')
+    let architect = section.selectAll('div')
     .data(nest)
     .enter()
     .append('div')
@@ -37,13 +36,14 @@ let pictures = architect.selectAll('img')
     function DismissTooltip(d){
         d3.select("#tooltip" + index(d)).style("opacity", 0);
     }
+    
 var architectRemoved = false;
 var architectHadRemovedOnce = false;
 var firstBtnPressedAfterArchitectRemoved = true;
-var AgeImg;
 var Architect;
 var Pictures;
 var PicturesContainer;
+
 // toggle genderBtn
     $("#genderBtn")
     .on("click", onClickGenderBtn);
@@ -62,7 +62,7 @@ var PicturesContainer;
         } else if (architectRemoved && firstBtnPressedAfterArchitectRemoved){
             $("#ageImg")
             .remove();
-            appendBackArchitects();
+            appendArchitects();
             Pictures
             .attr("class", "otherProperty gender")
             .attr("src", (d) => "img/gender/" + d.gender + ".png");
@@ -70,6 +70,8 @@ var PicturesContainer;
             firstBtnPressedAfterArchitectRemoved = false;
             architectRemoved = false;  
         }
+        $("#updatedImg")
+        .attr("src", "img/UD_gender.png"); 
         
     }
 
@@ -91,14 +93,16 @@ var PicturesContainer;
         } else if (architectRemoved && firstBtnPressedAfterArchitectRemoved){
             $("#ageImg")
             .remove();
-            appendBackArchitects();
+            appendArchitects();
             Pictures
             .attr("class", "otherProperty nation")
             .attr("src", (d) => "img/nation/" + d.nation + ".png");
             PicturesContainer = Pictures;
             firstBtnPressedAfterArchitectRemoved = false;
             architectRemoved = false;
-        } 
+        }
+        $("#updatedImg")
+        .attr("src", "img/UD_nationality.png"); 
     }
 // toggle glassBtn
     $("#glassBtn")
@@ -118,14 +122,44 @@ var PicturesContainer;
         } else if (architectRemoved && firstBtnPressedAfterArchitectRemoved){
             $("#ageImg")
             .remove();
-            appendBackArchitects();
+            appendArchitects();
             Pictures
             .attr("class", "otherProperty glass")
             .attr("src", (d) => "img/glass/" + d.glass + ".png");
             PicturesContainer = Pictures;
             firstBtnPressedAfterArchitectRemoved = false;
             architectRemoved = false;
-        } 
+        }
+        $("#updatedImg")
+        .attr("src", ""); 
+    }
+// toggle zodiacBtn
+    $("#zodiacBtn")
+    .on("click", onClickZodiacBtn);
+    function onClickZodiacBtn(){
+        if(!architectRemoved){
+            if(!firstBtnPressedAfterArchitectRemoved){
+                PicturesContainer
+                .attr("class", "otherProperty zodiac")
+                .attr("src", (d) => "img/zodiacSymbol/" + d.zodiac + ".png");
+            } else {
+                pictures
+                .attr("class", "otherProperty zodiac")
+                .attr("src", (d) => "img/zodiacSymbol/" + d.zodiac + ".png");
+            }
+        } else if (architectRemoved && firstBtnPressedAfterArchitectRemoved){
+            $("#ageImg")
+            .remove();
+            appendArchitects();
+            Pictures
+            .attr("class", "otherProperty zodiac")
+            .attr("src", (d) => "img/zodiacSymbol/" + d.zodiac + ".png");
+            PicturesContainer = Pictures;
+            firstBtnPressedAfterArchitectRemoved = false;
+            architectRemoved = false;
+        }
+        $("#updatedImg")
+        .attr("src", "img/UD_zodiac.png");
     }
 // toggle ageBtn
     $("#ageBtn")
@@ -152,6 +186,8 @@ var PicturesContainer;
         .remove();
     }
     firstBtnPressedAfterArchitectRemoved = true;
+    $("#updatedImg")
+    .attr("src", ""); 
 }
 
 // toggle resetBtn
@@ -172,16 +208,18 @@ var PicturesContainer;
         } else if (architectRemoved && firstBtnPressedAfterArchitectRemoved){
             $("#ageImg")
             .remove();
-            appendBackArchitects();
+            appendArchitects();
             Pictures
             .attr("class", "photo")
             .attr("src", (d) => "img/photo/" + d.img + ".png");
             PicturesContainer = Pictures;
             firstBtnPressedAfterArchitectRemoved = false;
             architectRemoved = false;
-        } 
+        }
+        $("#updatedImg")
+        .attr("src", ""); 
     }
-function appendBackArchitects(){
+function appendArchitects(){
 
 let architect = section.selectAll('g')
     .data(nest)
