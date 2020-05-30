@@ -1,31 +1,26 @@
 #body {
   margin-bottom: 0px;
 }
+
+/* header section */
 .grid-container.header {
   display: grid;
   grid-template-columns: 10% 90%;
   margin-left: 2%;
 }
-.grid-container.main {
-  display: grid;
-  grid-template-columns: 80% 20%;
-  margin-bottom: 0rem;
+
+.grid-item {
+  background-color: white;
 }
-.grid-item.portraits {
-  padding: 4% 3%;
-  padding-bottom: 0rem;
-}
-.grid-item.filters {
-  margin-top: 10%;
-  margin-right: 5%;
+
+.titleImg {
+  width: 120px;
 }
 
 .grid-item.text {
   margin-left: 40px;
 }
-.titleImg {
-  width: 120px;
-}
+
 .titleText {
   margin-top: 0px;
   margin-bottom: 25px;
@@ -34,9 +29,7 @@
   font-size: 3rem;
   color: #678bc7;
 }
-.titleImportant {
-  color: rgb(30, 30, 30);
-}
+
 .intro {
   padding-right: 10%;
   margin-bottom: 0rem;
@@ -44,27 +37,136 @@
   line-height: 1.5rem;
 }
 
-.grid-item {
-  background-color: white;
+.titleImportant {
+  color: rgb(30, 30, 30);
 }
 
-.Btn {
-  display: block;
-  /*margin-left: 35%;*/
-  width: 100%;
-  height: 5%;
-  font-family: "Saira", sans-serif;
-  font-size: 0.85rem;
+/* main section */
+.main {
+  display: grid;
+  margin-bottom: 0rem;
 }
 
-.resetBtn {
-  background-color: rgb(255, 217, 0);
+.filters {
+  margin: 0rem 10%;
+  margin-top: 2%;
 }
 
-#architect {
+.portraits {
+  padding: 2% 10%;
+  padding-bottom: 0rem;
+}
+
+.grid-container.selectBox {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.divOfSelectBox {
+  margin-right: 15%;
+  padding-left: 10px;
+  display: inline;
+  border-left: 5px solid rgb(245, 181, 5);
+}
+
+.titleOfSelectBox {
+  margin-bottom: 0.2rem;
+  margin-top: 0rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.9rem;
+  color: rgb(121, 89, 4);
+}
+
+.questionSelect {
+  height: 30px;
+  background-color: transparent;
+  margin-top: 0px;
+  margin-right: 10px;
+  padding-left: 2px;
+  padding-right: 10px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-width: 0px;
+  font-family: 'Signika', sans-serif;
+  font-size: 1.2rem;
+  color: rgb(58, 58, 58);
+}
+
+.questionSelect.categories {
+  background: url("img/selectBackground_shot.svg") no-repeat right center;
+  width: 150px;
+  margin-right: 5%;
+}
+
+.questionSelect.update {
+  background: url("img/selectBackground.svg") no-repeat right center;
+  width: 550px;
+}
+
+select {
+  outline: none
+}
+
+/* dropDownBox */
+.questionLine {
+  width: 60%;
+  margin-left: 0rem;
+
+  /* border-style: dashed;
+  border-width: 0.5px; */
+}
+
+.updatedNotes {
+  border-left: 5px solid #678bc7;
+  padding-left: 10px;
+}
+
+
+/* updatedText */
+.updatedQuestion {
+  margin-top: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.updatedInfo_detailed {
+  border-left: 5px solid rgb(226, 6, 6);
+  padding-left: 10px;
+}
+
+/* education_1 */
+#divOfEducation_2 {
   display: inline;
 }
 
+.education_2img {
+  height: 25px;
+  width: auto;
+  margin-top: 0rem;
+  margin-bottom: -0.3rem;
+}
+
+.education {
+  display: inline;
+}
+
+.education.universityName {
+  font-family: 'Signika', sans-serif;
+  font-size: 1.1rem;
+  color: rgb(3, 45, 83);
+  opacity: 0.8;
+}
+
+.education.additionInfo {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.8rem;
+  color: rgb(83, 82, 3);
+  opacity: 0.8;
+}
+
+/* education_1 */
+
+/* tooltip */
 .tooltip {
   position: absolute;
   top: 20px;
@@ -86,52 +188,26 @@
   font-size: 1rem;
   font-weight: 700;
 }
+
 .tooltipYear {
   margin-bottom: 5px;
   font-family: "Rajdhani", sans-serif;
   font-size: 0.9rem;
   color: rgb(173, 4, 4);
 }
+
+/* tooltip */
+
+/* imgGallery */
+#architect {
+  position: relative;
+  display: inline;
+}
+
 img {
   display: inline;
-  width: 90px;
+  width: 95px;
   margin: 5px;
-}
-.divOfAgeImg {
-  text-align: center;
-}
-.age {
-  width: 90%;
-}
-.divOfUpdatedImg {
-  width: 100%;
-  /* height: 250px; */
-}
-#updatedImg {
-  width: 95%;
-  border: 1px dashed grey;
-}
-.updateText {
-  background-color: gray;
-}
-
-.photo {
-  filter: grayscale(1);
-  z-index: 1;
-}
-
-.photo:hover {
-  position: relative;
-  filter: grayscale(0);
-  transform: scale(1.5);
-  border: 2px solid rgba(241, 71, 71, 0.9);
-  border-left: 10px solid rgba(241, 71, 71, 0.6);
-  border-top: 5px solid rgba(241, 71, 71, 0.6);
-  z-index: 2;
-}
-.photo:hover ~ .tooltip {
-  box-shadow: 20px 10px 0px 3px rgba(241, 71, 71, 0.9);
-  transform: skew(-10deg);
 }
 
 .otherProperty {
@@ -145,65 +221,102 @@ img {
   border: 2px solid rgb(3, 242, 250);
 }
 
-.otherProperty:hover ~ .tooltip {
+.otherProperty:hover~.tooltip {
   top: 6px;
   left: -25px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   transform: skew(0deg);
 }
 
-#architect {
+.otherProperty.photo {
+  filter: grayscale(0);
+  z-index: 1;
+}
+
+.otherProperty.photo:hover {
   position: relative;
+  filter: grayscale(0);
+  transform: scale(1.5);
+  border: 2px solid rgba(241, 71, 71, 0.9);
+  border-left: 10px solid rgba(241, 71, 71, 0.6);
+  border-top: 5px solid rgba(241, 71, 71, 0.6);
+  z-index: 2;
 }
-.test {
-  width: 1424px;
-  height: 50px;
-  background-color: red;
+
+.otherProperty.photo:hover~.tooltip {
+  box-shadow: 20px 10px 0px 3px rgba(241, 71, 71, 0.9);
+  transform: skew(-10deg);
 }
+
+#section:hover>.architect {
+  opacity: 1;
+}
+
+#section:hover>.architect:not(:hover) {
+  opacity: 0.6;
+  /* filter: grayscale(1); */
+}
+
+.otherProperty.photo {
+  filter: grayscale(0);
+}
+
+/* imgGallery */
+
+
 
 @media only screen and (min-width: 1441px) {
   .grid-item.portraits {
     padding: 2% 5%;
   }
+
   .titleText {
     margin-top: 25px;
   }
+
   .tooltip {
     width: 180px;
   }
+
   .tooltipName {
     font-size: 1.2rem;
   }
+
   .tooltipYear {
     font-size: 1.1rem;
   }
+
   img {
     width: 120px;
     margin: 5px;
   }
+
   .divOfUpdatedImg {
     width: 100%;
   }
+
   .divOfAgeImg {
     text-align: center;
   }
-  .age {
-    width: 89%;
-  }
+
   .titleImg {
     width: 160px;
   }
+
   .Btn {
     font-size: 1rem;
   }
 }
+
 @media only screen and (min-width: 1800px) {
   #header {
     margin: 1% 5%;
   }
+
   .grid-item.portraits {
     padding: 2% 4%;
   }
+
   img {
     margin: 8px;
   }
