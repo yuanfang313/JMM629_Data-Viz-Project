@@ -101,7 +101,7 @@
 
 .questionSelect.update {
   background: url("img/selectBackground.svg") no-repeat right center;
-  width: 550px;
+  width: 580px;
 }
 
 select {
@@ -117,10 +117,19 @@ select {
   border-width: 0.5px; */
 }
 
-.updatedNotes {
+.divOfUpdatedIntro {
+  position: relative;
+  height: 90px;
+}
+
+.updatedIntro {
+  position: absolute;
+  margin-top: 1.5rem;
   border-left: 5px solid #678bc7;
   padding-left: 10px;
+  visibility: hidden;
 }
+
 
 
 /* updatedText */
@@ -130,6 +139,7 @@ select {
 }
 
 .updatedInfo_detailed {
+  margin-top: 1rem;
   border-left: 5px solid rgb(226, 6, 6);
   padding-left: 10px;
 }
@@ -228,12 +238,12 @@ img {
   transform: skew(0deg);
 }
 
-.otherProperty.photo {
+.otherProperty.default {
   filter: grayscale(0);
   z-index: 1;
 }
 
-.otherProperty.photo:hover {
+.otherProperty.default:hover {
   position: relative;
   filter: grayscale(0);
   transform: scale(1.5);
@@ -243,7 +253,7 @@ img {
   z-index: 2;
 }
 
-.otherProperty.photo:hover~.tooltip {
+.otherProperty.default:hover~.tooltip {
   box-shadow: 20px 10px 0px 3px rgba(241, 71, 71, 0.9);
   transform: skew(-10deg);
 }
@@ -257,7 +267,7 @@ img {
   /* filter: grayscale(1); */
 }
 
-.otherProperty.photo {
+.otherProperty.default {
   filter: grayscale(0);
 }
 

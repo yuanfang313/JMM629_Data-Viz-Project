@@ -3,20 +3,20 @@ d3.csv("data.csv").then(function (dataset) {
     //#region  questionDict
     // questions about life
     const questionsDict_life = {
-        photo: "Select a question about Personal Life...",
+        default: "Select a question about Personal Life...",
         gender: "Male or Female?",
         nation: "Where do they come from?",
         glass: "Do they wear glasses?",
         zodiac: "What are the zodiac signs of them?",
-        youngPhoto: "What were they look like when they were young/ younger?",
-        alivePhoto: "Which of them had passed away?",
+        young: "What were they look like when they were young/ younger?",
+        old: "Which of them had passed away?",
     }
     const questions_life = Object.values(questionsDict_life)
     const keys_life = Object.keys(questionsDict_life)
 
     // questions about education
     const questionsDict_education = {
-        photo: "Select a question about Education...",
+        default: "Select a question about Education...",
         education_1: "Did they learn architecture design in the college?",
         education_2: "Did they learn architecture design in the college abroad?",
         teach: "Had they taught in the colleges?",
@@ -27,11 +27,13 @@ d3.csv("data.csv").then(function (dataset) {
 
     // questions about prize
     const questionsDict_career = {
-        photo: "Select a question about Career...",
+        default: "Select a question about Career...",
         education_3: "Did they consider other careers before becoming an architect?",
         travel: "Were there some trips that had big impacts to their career?",
         age: "How old were they when they won the prize?",
-        workTogether: "Did they work with other winners?",
+        work: "Did they work with other winners?",
+        esTime: "When did they establish their own practice after graduation?",
+        wonTime: "When did they receive the prize after starting their own practice?",
     }
 
     const questions_career = Object.values(questionsDict_career)
@@ -55,19 +57,21 @@ d3.csv("data.csv").then(function (dataset) {
     categorySelected
         .on("change", UpdateQuestionGroup)
 
-    
+    // show the intro of "Personal Life" by default
+    const introOfLife = d3.select("#updatedIntro_life");
+    const introOfEducation = d3.select("#updatedIntro_education")
+    const introOfCareer = d3.select("#updatedIntro_career")
+    introOfLife.style("visibility", "visible");
+
+    var selectedCategory = "life";
     function UpdateQuestionGroup() {
-        resetImgGallery();
+        ResetImgGallery();
+        
         architect.attr("class", "architect")
-        function resetImgGallery() {
-            d3.select("#education_11d").text("")
-            pictures
-              .attr("class", "otherProperty photo")
-              .attr("src", d => "img/photo/" + d.photo + ".png")
-            SelectedQuestion = "photo"
-        }
 
         var SelectedCategory = d3.select(this).property("value")
+        selectedCategory = SelectedCategory;
+
         if (SelectedCategory == "life") {
             $("option").remove(".option_update");
             const questionSelect_life = d3.select("#questionSelect_update")
@@ -80,7 +84,11 @@ d3.csv("data.csv").then(function (dataset) {
                 .attr("value", (d, i) => keys_life[i])
                 .attr("class", "option_update")
 
-            questionSelect_life.on("change", updateGridImages)
+            questionSelect_life.on("change", updateGridImages);
+            CleanIntro();
+            introOfLife.style("visibility", "visible");
+            
+
         } else if (SelectedCategory == "education") {
             $("option").remove(".option_update");
             const questionSelect_education = d3.select("#questionSelect_update")
@@ -93,7 +101,10 @@ d3.csv("data.csv").then(function (dataset) {
                 .attr("value", (d, i) => keys_education[i])
                 .attr("class", "option_update")
 
-            questionSelect_education.on("change", updateGridImages)
+            questionSelect_education.on("change", updateGridImages);
+            CleanIntro();
+            introOfEducation.style("visibility", "visible");
+
         } else if (SelectedCategory == "career") {
             $("option").remove(".option_update");
             const questionSelect_career = d3.select("#questionSelect_update")
@@ -108,9 +119,21 @@ d3.csv("data.csv").then(function (dataset) {
                 .attr("text-decoration", "underline")
 
             questionSelect_career.on("change", updateGridImages)
+            CleanIntro();
+            introOfCareer.style("visibility", "visible");
+        }
+        function ResetImgGallery() {
+            d3.select("#education_11d").text("")
+            pictures
+              .attr("class", "otherProperty default")
+              .attr("src", d => "img/default/" + d.default + ".png")
+            SelectedQuestion = "default"
         }
     }
 
+    function CleanIntro() {
+        jQuery(".updatedIntro").css("visibility", "hidden");
+    }
 
     //#region results of OptionChanged
     var SelectedQuestion;
@@ -118,50 +141,43 @@ d3.csv("data.csv").then(function (dataset) {
 
         // get the "value" of the selected option
         var selectedQuestion = d3.select(this).property("value")
+        CleanIntro();
+        if (selectedQuestion == "default"){
+            if (selectedCategory == "life"){
+                introOfLife.style("visibility", "visible");
+            } else if (selectedCategory == "education"){
+                introOfEducation.style("visibility", "visible");
+            } else if (selectedCategory == "career"){
+                introOfCareer.style("visibility", "visible");
+            }
+        } else {
+            d3.select("#updatedIntro_" + selectedQuestion).style("visibility", "visible")
+        }
 
         // pass the selected option to "SelectedQuestion"
         SelectedQuestion = selectedQuestion;
-
-        // building three categories of questions
-        const questionSelection_1 = ["photo", "alivePhoto", "youngPhoto", "gender", "nation", "glass", "zodiac"]
-        const questionSelection_2 = ["photo", "education_1", "education_2", "teach"]
-        const questionSelection_3 = ["photo", "education_3", "age", "travel", "workTogether"]
+        update(selectedQuestion);
 
         // change class name when change default option
-
-        if (selectedQuestion == "photo") {
+        if (selectedQuestion == "default") {
             architect.attr("class", "architect")
         } else {
             architect.attr("class", "Architect")
         }
-        // if selectedQuestion is not in the questionSelection_1
-        if ($.inArray(selectedQuestion, questionSelection_1) != -1) {
-            // update img 
-            updateImgForQSelection_1();
-        } else if ($.inArray(selectedQuestion, questionSelection_2) != -1) {
-            updateImgForQSelection_2();
-        } else if ($.inArray(selectedQuestion, questionSelection_3) != -1) {
-            updateImgForQSelection_3();
-        }
-        
-        if (selectedQuestion == "education_1" || selectedQuestion == "education_2") {
+        // update Intro
+        const questionsWithMoreInfo = [
+            "education_1",
+            "education_2",
+            "education_3",
+            "travel",
+            "work",
+        ]
+        if ($.inArray(selectedQuestion, questionsWithMoreInfo) != -1) {
             d3.select("#education_11d")
                 .text("Hover over the images to learn more info...")
             } else {
             d3.select("#education_11d")
                 .text("")
-        }
-
-        function updateImgForQSelection_1() {
-            update(selectedQuestion);
-        }
-
-        function updateImgForQSelection_2() {
-            update(selectedQuestion);
-        }
-
-        function updateImgForQSelection_3() {
-            update(selectedQuestion);
         }
     }
 
@@ -191,14 +207,15 @@ d3.csv("data.csv").then(function (dataset) {
         .enter().append('div')
         .attr("id", "architect")
         .attr("class", "architect");
+
     let pictures = architect.selectAll('img')
         .data(function (d) {
             return d.values;
         })
         .enter().append('img')
-        .attr("class", "otherProperty photo")
+        .attr("class", "otherProperty default")
         .attr("id", d => "img" + d.index)
-        .attr("src", d => "img/" + keys_life[0] + "/" + d.photo + ".png")
+        .attr("src", d => "img/" + keys_life[0] + "/" + d.default + ".png")
         .on("mouseenter", ShowInfo)
         .on("mouseout", DismissInfo);
     //#endregion
@@ -221,6 +238,7 @@ d3.csv("data.csv").then(function (dataset) {
     }
     const education_2imgArray = [
         "img8",
+        "img7",
         "img9",
         "img15",
         "img17",
@@ -228,6 +246,7 @@ d3.csv("data.csv").then(function (dataset) {
         "img25",
         "img26",
         "img32",
+        "img41",
         "img43",
         "img44",
     ]
@@ -245,7 +264,7 @@ d3.csv("data.csv").then(function (dataset) {
     var ImgRelated_2;
     var ImgRelatedPath_1;
     var ImgRelatedPath_2;
-    const originalImgPath = "img/workTogether/Y.png"
+    const originalImgPath = "img/work/Y.png"
 
     function ShowInfo(d) {
         var imgPath = d3.select(this).property("src");
@@ -257,9 +276,9 @@ d3.csv("data.csv").then(function (dataset) {
         d3.select("#tooltip" + index(d)).style("opacity", 0.9);
         // show photo
         d3.select("#img" + index(d))
-            .attr("src", "img/" + keys_life[0] + "/" + d.photo + ".png")
+            .attr("src", "img/default/" + d.default + ".png")
 
-        if (SelectedQuestion == "workTogether" && $.inArray(imgId, newWorkTogetherArray) != -1) {
+        if (SelectedQuestion == "work" && $.inArray(imgId, newWorkTogetherArray) != -1) {
             switch (imgId) {
                 // 2013 & 2010
                 case "img10":
@@ -314,8 +333,8 @@ d3.csv("data.csv").then(function (dataset) {
             triggerRelatedImg();
 
             function triggerRelatedImg() {
-                ImgRelatedPath_1 = "img/photo/" + workTogetherDict[ImgRelated_1] + ".png";
-                ImgRelatedPath_2 = "img/photo/" + workTogetherDict[ImgRelated_2] + ".png"
+                ImgRelatedPath_1 = "img/default/" + workTogetherDict[ImgRelated_1] + ".png";
+                ImgRelatedPath_2 = "img/default/" + workTogetherDict[ImgRelated_2] + ".png"
                 d3.select("#img" + ImgRelated_1).attr("src", ImgRelatedPath_1);
                 d3.select("#img" + ImgRelated_2).attr("src", ImgRelatedPath_2);
             }
@@ -388,7 +407,7 @@ d3.csv("data.csv").then(function (dataset) {
         // dismiss img 
         d3.select("#img" + index(d))
             .attr("src", ImgPath)
-        if (SelectedQuestion == "workTogether") {
+        if (SelectedQuestion == "work") {
             d3.select("#img" + ImgRelated_1)
                 .attr("src", originalImgPath);
             d3.select("#img" + ImgRelated_2)
