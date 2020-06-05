@@ -171,6 +171,7 @@ d3.csv("data.csv").then(function (dataset) {
             "education_3",
             "travel",
             "work",
+            "esTime",
         ]
         if ($.inArray(selectedQuestion, questionsWithMoreInfo) != -1) {
             d3.select("#education_11d")
@@ -246,6 +247,7 @@ d3.csv("data.csv").then(function (dataset) {
         "img25",
         "img26",
         "img32",
+        "img34",
         "img41",
         "img43",
         "img44",
