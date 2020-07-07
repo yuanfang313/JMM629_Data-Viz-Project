@@ -33,8 +33,9 @@
 .intro {
   padding-right: 10%;
   margin-bottom: 0rem;
-  font-family: "Ubuntu", sans-serif;
-  line-height: 1.5rem;
+  font-family: 'Montaga', serif;
+  font-size: 1rem;
+  /* line-height: 1.5rem; */
 }
 
 .titleImportant {
@@ -53,7 +54,7 @@
 }
 
 .portraits {
-  padding: 2% 10%;
+  padding: 2% 4.7%;
   padding-bottom: 0rem;
 }
 
@@ -112,14 +113,19 @@ select {
 .questionLine {
   width: 60%;
   margin-left: 0rem;
-
-  /* border-style: dashed;
-  border-width: 0.5px; */
 }
 
 .divOfUpdatedIntro {
   position: relative;
-  height: 90px;
+  height: 100px;
+}
+
+.divOfUpdatedInfo_detailed {
+  position: relative;
+  margin-top: 0.6rem;
+  border-left: 5px solid rgb(226, 6, 6);
+  padding-left: 10px;
+  height: 25px;
 }
 
 .updatedIntro {
@@ -127,29 +133,18 @@ select {
   margin-top: 1.5rem;
   border-left: 5px solid #678bc7;
   padding-left: 10px;
+  font-family: 'Montaga', serif;
+  font-size: 1rem;
+  color: #084177;
   visibility: hidden;
 }
 
-
-
-/* updatedText */
-.updatedQuestion {
-  margin-top: 5px;
-  margin-bottom: 0.5rem;
-}
-
-.updatedInfo_detailed {
-  margin-top: 1rem;
-  border-left: 5px solid rgb(226, 6, 6);
-  padding-left: 10px;
-}
-
-/* education_1 */
-#divOfEducation_2 {
+#divOfEducationAbroad {
   display: inline;
+  margin-top: 0rem;
 }
 
-.education_2img {
+.educationAbroad_img {
   height: 25px;
   width: auto;
   margin-top: 0rem;
@@ -158,6 +153,20 @@ select {
 
 .education {
   display: inline;
+}
+
+.otherTexts {
+  display: inline;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1rem;
+  color: rgb(3, 45, 83);
+}
+
+.defaultTexts {
+  display: inline;
+  font-family: 'Signika', sans-serif;
+  font-size: 1.1rem;
+  color: #303960;
 }
 
 .education.universityName {
@@ -175,12 +184,34 @@ select {
 }
 
 /* education_1 */
+.hightLightedTexts {
+  display: inline;
+  font-family: 'Signika', sans-serif;
+  font-size: 1.1rem;
+  color: black;
+}
+
+.hightLightedTexts.red {
+  background-color: #fc9d9d;
+}
+
+.hightLightedTexts.blue {
+  background-color: #a4e7f8;
+}
+
+.hightLightedTexts.green {
+  background-color: #a9eec2;
+}
+
+.hightLightedTexts.orange {
+  background-color: #ffd31d;
+}
 
 /* tooltip */
 .tooltip {
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: -30px;
   width: 150px;
   border: 1px solid rgb(48, 48, 48);
   border-right: 8px solid rgb(48, 48, 48);
@@ -217,7 +248,7 @@ select {
 img {
   display: inline;
   width: 95px;
-  margin: 5px;
+  margin: 4px;
 }
 
 .otherProperty {
@@ -254,6 +285,8 @@ img {
 }
 
 .otherProperty.default:hover~.tooltip {
+  top: 20px;
+  left: -55px;
   box-shadow: 20px 10px 0px 3px rgba(241, 71, 71, 0.9);
   transform: skew(-10deg);
 }

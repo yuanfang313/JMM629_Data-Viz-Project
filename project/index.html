@@ -1,220 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@500&family=Squada+One&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Rajdhani&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Signika:wght@600&display=swap"
-        rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Saira:wght@500&family=Squada+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Signika:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montaga&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="main.css" />
     <title>People Who Won The Pritzker Architecture</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <section id="header">
-        <div class="grid-container header">
-            <div class="grid-item img">
-                <img class="titleImg" src="img/medal.png" alt="" />
-            </div>
-            <div class="grid-item text">
-                <p class="titleText">
-                    <span class="titleImportant">People</span> Who Won <br />The
-                    Pritzker <span class="titleImportant">Architecture</span> Prize
-                </p>
-                <p class="intro">
-                    I think I can safely say that, The
-                    <strong> Pritzker Architecture Prize</strong> is the "Nobel Prize"
-                    for architects (check the detailed description of the prize in
-                    <a href="https://en.wikipedia.org/wiki/Pritzker_Architecture_Prize">Wikipedia</a>
-                    ). This project is a try to reveal some facts of people who had won
-                    the prize, and hopefully give you a chance to take a glance of the
-                    mysterious life of these brilliant architects as a group.
-                </p>
-            </div>
+      <div class="grid-container header">
+        <div class="grid-item img">
+          <img class="titleImg" src="img/medal.png" alt="" />
         </div>
+        <div class="grid-item text">
+          <p class="titleText">
+            <span class="titleImportant">People</span> Who Won <br />The
+            Pritzker <span class="titleImportant">Architecture</span> Prize
+          </p>
+          <p class="intro">
+            I think I can safely say that, The
+            <strong> Pritzker Architecture Prize</strong> is the "Nobel Prize"
+            for architects (check the detailed description of the prize in
+            <a href="https://en.wikipedia.org/wiki/Pritzker_Architecture_Prize"
+              >Wikipedia</a
+            >
+            ). This project is a try to reveal some facts of people who had won
+            the prize, and hopefully give you a chance to take a glance of the
+            mysterious life of these brilliant architects as a group.
+          </p>
+        </div>
+      </div>
     </section>
     <section id="mainContents">
-        <div class="main">
-            <div id="filtersContainer" class="filters">
-                <div class="updatedInfo">
-                    <hr class="questionLine">
-                    <div class="grid-container selectBox">
-                        <div class="grid-item divOfSelectBox categories">
-                            <p class="titleOfSelectBox">Category</p>
-                            <select id="questionSelect_categories" class="questionSelect categories">
-                                <option value="life">LIFE:</option>
-                                <option value="education">EDUCATION:</option>
-                                <option value="career">CAREER:</option>
-                            </select>
-                        </div>
-                        <div class="grid-item divOfSelectBox update">
-                            <p class="titleOfSelectBox">Question</p>
-                            <select id="questionSelect_update" class="questionSelect update"></select>
-                        </div>
-                    </div>
-                    <div class="divOfUpdatedIntro">
-                        <!-- personal life -->
-                        <p id="updatedIntro_life" class="updatedIntro">
-                            Many people might think Master Architects are born to be "Master". But of course, Master
-                            Architects also share something in life with anyone else -- they all had an origin (no
-                            matter in terms of space or time), all used to be young and finally all need to face death.
-                            While the contents in this section are mainly basic facts of the laureates, it might be
-                            interesting to see them presented in aggregate.
-                        </p>
-                        <p id="updatedIntro_gender" class="updatedIntro">
-                            Like many other fields, architecture industry had been dominated by male since architecture
-                            became organized as a profession. In an interview, the first female architect who had won
-                            the Pritzker Architecture Prize, Zaha Hadid, were asked, “Do you think the profession is
-                            gender biased?” She answered, “I don’t think it is profession… I think people are biased.”
-                        </p>
-                        <p id="updatedIntro_nation" class="updatedIntro">
-                            From it was founded in 1979, the Pritzker Architecture Prize had been awarded to architects
-                            all around the world. It's said to be awarded "irrespective of nationality, race, creed, or
-                            ideology". The contents in this part is not only showing the nationality of architects when
-                            they won the prize but also the country of birth, where might have cultural influences for
-                            them.
-                        </p>
-                        <p id="updatedIntro_glass" class="updatedIntro">
-                            In public view, like wearing black, the preference of wearing black, round, plastic-frame
-                            spectacles is a stereotype of architects, which originated from Le Corbusier and his famous
-                            owlish glasses. However, the contents in this part only focus on showing whether these
-                            Master Architects wear glasses but not the styles. It shows that only 18 out of 48 laureates
-                            wearing glasses.
-                        </p>
-                        <p id="updatedIntro_zodiac" class="updatedIntro">
+      <div class="main">
+        <div id="filtersContainer" class="filters">
+          <div class="updatedInfo">
+            <hr class="questionLine" />
+            <div class="grid-container selectBox">
+              <div class="grid-item divOfSelectBox categories">
+                <p class="titleOfSelectBox">Category</p>
+                <select
+                  id="questionSelect_categories"
+                  class="questionSelect categories"
+                >
+                  <option value="life">LIFE:</option>
+                  <option value="education">EDUCATION:</option>
+                  <option value="career">CAREER:</option>
+                </select>
+              </div>
+              <div class="grid-item divOfSelectBox update">
+                <p class="titleOfSelectBox">Question</p>
+                <select
+                  id="questionSelect_update"
+                  class="questionSelect update"
+                ></select>
+              </div>
+            </div>
+            <div class="divOfUpdatedIntro">
+              <!-- personal life -->
+              <p id="updatedIntro_life" class="updatedIntro">
+                Many people might think Master Architects are born to be
+                "Master". But of course, Master Architects also share something
+                in life with anyone else -- they all had an origin (no matter in
+                terms of space or time), all used to be young and finally all
+                need to face death. While the contents in this section are
+                mainly basic facts of the laureates, it might be interesting to
+                see them presented in aggregate.
+              </p>
+              <p id="updatedIntro_gender" class="updatedIntro">
+                Like many other fields, architecture industry had been dominated
+                by male since architecture became organized as a profession. In
+                an interview, the first female architect who had won the
+                Pritzker Architecture Prize, Zaha Hadid, were asked, “Do you
+                think the profession is gender biased?” She answered, “I don’t
+                think it is profession… I think people are biased.”
+              </p>
+              <p id="updatedIntro_nation" class="updatedIntro">
+                From it was founded in 1979, the Pritzker Architecture Prize had
+                been awarded to architects all around the world. It's said to be
+                awarded "irrespective of nationality, race, creed, or ideology".
+                The contents in this part is not only showing the nationality of
+                architects when they won the prize but also the country of
+                birth, where might have cultural influences for them.
+              </p>
+              <p id="updatedIntro_glass" class="updatedIntro">
+                In public view, like wearing black, the preference of wearing
+                black, round, plastic-frame spectacles is a stereotype of
+                architects, which originated from Le Corbusier and his famous
+                owlish glasses. However, the contents in this part only focus on
+                showing whether these Master Architects wear glasses but not the
+                styles. It shows that only 18 out of 48 laureates wearing
+                glasses.
+              </p>
+              <p id="updatedIntro_zodiac" class="updatedIntro"></p>
+              <p id="updatedIntro_young" class="updatedIntro">
+                Due to the unique nature of the profession, very few architects
+                establish their reputation of career when they were young.
+                Therefore, in the impression of the public (even people in this
+                field), most Master Architects are a group of people passed
+                middle age, as if they were always like that. In this part,
+                let's take a glance of what they were look like when they were
+                young/ younger (couldn't find the data of 1996 and 1986
+                laureate).
+              </p>
+              <p id="updatedIntro_old" class="updatedIntro">
+                Instead of saying most Master Architects live a long life,
+                living a long life gives them more chances to become masters in
+                this field, which would enable them to build more projects.
+                While from 1988, 15 out of 48 laureates had passed away, among
+                which Zaha Hadid was the youngest (passed away at 65, 2016),
+                Oscar Niemeyer was the oldest (passed away at 104, 2012), and
+                the average is 86.
+              </p>
 
-                        </p>
-                        <p id="updatedIntro_young" class="updatedIntro">
-                            Due to the unique nature of the profession, very few architects establish their reputation
-                            of career when they were young. Therefore, in the impression of the public (even people in
-                            this field), most Master Architects are a group of people passed middle
-                            age, as if they were always like that. In this part, let's take a glance of what they were
-                            look like when they were young/ younger (couldn't find the data of 1996 and 1986 laureate).
-                        </p>
-                        <p id="updatedIntro_old" class="updatedIntro">
-                            Instead of saying most Master Architects live a long life, living a long life gives them
-                            more chances to become masters in this field, which would enable them to build more
-                            projects. While from 1988, 15 out of 48 laureates had passed away, among which Zaha Hadid
-                            was the youngest (passed away at 65, 2016), Oscar Niemeyer was the oldest (passed away at
-                            104, 2012), and the average is 86.
-                        </p>
+              <!-- education -->
+              <p id="updatedIntro_education" class="updatedIntro">
+                Like many other design subjects, Architecture is considered hard
+                to learn and teach. In modern times, normally studying in the
+                college is the first part of the whole process of training for
+                architects. This section dedicates to show where did the
+                laureates receive their formal training before becoming
+                architects, and what are their roles in architectural education
+                in later life.
+              </p>
+              <p id="updatedIntro_educationGeneral" class="updatedIntro">
+                Architecture had been considered a complex profession extremely
+                hard to learn by oneself. However, before the system of
+                apprenticeship with master builders was widely replaced by
+                modern architectural education, many great modern architects,
+                like Le Corbusier (1887 - 1965), Frank Lloyd Wright (1867 -
+                1959), Ludwig Mies van der Rohe (1886 - 1969), lacked formal
+                training as an architect.
+              </p>
+              <p id="updatedIntro_educationAbroad" class="updatedIntro">
+                Learning architecture abroad, no matter via study in the
+                college, travel, or work for Master Architects can bring great
+                impacts to young architects. The contents in this part only
+                focus on showing whether the laureates had studied architecture
+                abroad in the college.
+              </p>
+              <p id="updatedIntro_teach" class="updatedIntro">
+                Lots of Master Architects are invited as gest professors or
+                visiting professors all around the world, and some of them have
+                long-term professorship in the University. The data in this part
+                mainly comes from the biography provided by the website of The
+                Pritzker Architecture Prize and Wikipedia. The architects who
+                are labeled with "NA" mean there are no contents about
+                "teaching" in the two data source.
+              </p>
 
-                        <!-- education -->
-                        <p id="updatedIntro_education" class="updatedIntro">
-                            Like many other design subjects, Architecture is considered hard to learn and teach.
-                            In modern times, normally studying in the college is the first part of the whole
-                            process of training for architects. This section dedicates to show where did the laureates
-                            receive their formal training before becoming architects, and what are their roles in
-                            architectural education in later life.
-                        </p>
-                        <p id="updatedIntro_education_1" class="updatedIntro">
-                            Architecture had been considered a complex profession extremely hard to learn by oneself.
-                            However, before the system of apprenticeship with master builders was widely replaced by
-                            modern architectural education, many great modern architects, like Le Corbusier (1887 -
-                            1965), Frank Lloyd Wright (1867 - 1959), Ludwig Mies van der Rohe (1886 - 1969), lacked
-                            formal training as an architect.
-                        </p>
-                        <p id="updatedIntro_education_2" class="updatedIntro">
-                            Learning architecture abroad, no matter via study in the college, travel, or work for Master
-                            Architects can bring great impacts to young architects. The contents in this part only focus
-                            on showing whether the laureates had studied architecture abroad in the college.
-                        </p>
-                        <p id="updatedIntro_teach" class="updatedIntro">
-                            Lots of Master Architects are invited as gest professors or visiting professors all around
-                            the world, and some of them have long-term professorship in the University. The data in this
-                            part mainly comes from the biography provided by the website of The Pritzker Architecture
-                            Prize and Wikipedia. The architects who are labeled with "NA" mean there are no contents
-                            about "teaching" in the two data source.
-                        </p>
-
-                        <!-- career -->
-                        <p id="updatedIntro_career" class="updatedIntro">
-                            To a great extents, the career of an architect is built up by his or her architecture
-                            projects in the real context. But this section won't include contents about their projects,
-                            but other career-related aspects, like other career they had considered, the trips and
-                            figures important to their works, when did they won one of the world's premier professional
-                            recognition, and etc.
-                        </p>
-                        <p id="updatedIntro_education_3" class="updatedIntro">
-                            Not all the Master Architects want to make "architecture" their life-long pursue from the
-                            very beginning. Among the laureates of the Pritzker Architecture Prize, some of them had
-                            thought about following their father's profession, some of them had learned other subjects
-                            in the undergraduate, and some of them even had been quite successful in the career before.
-                            In this part, let's take a look of the other career they had considered.
-                        </p>
-                        <p id="updatedIntro_travel" class="updatedIntro">
-                            Traveling can make a big impact to architects, especially at the beginning of their career.
-                            One of the examples that people most like to talk about is Le Corbusier’s legendary trip
-                            through Europe that influenced his entire career and modern architecture. Today, many
-                            architecture schools and architecture studios still award the most outstanding students with
-                            traveling scholarship.
-                        </p>
-                        <p id="updatedIntro_age" class="updatedIntro">
-                            As the award that's often referred to as the Nobel Prize of architecture, many laureates had
-                            passed their middle age when they won the Pritzker Architecture Prize. Since 1979, the
-                            youngest is 2010 laureate, Ryue Nishizawa at age 44, and the oldest is 2018 laureate, B.V.
-                            Doshi at age 90. And the average age of the laureates is 63 (round to the nearest integer).
-                        </p>
-                        <p id="updatedIntro_work" class="updatedIntro">
-                            Working together can bring architects opportunities to learn from each other. While most
-                            Master Architects have their unique perspective of architecture and working style, had those
-                            influenced by someone else? It would be interesting to see which of these laureates had
-                            worked together, which might have impact on their own career.
-                        </p>
-                        <p id="updatedIntro_esTime" class="updatedIntro">
-                            (The numbers means the number of years it takes) For architects, "establish one's own
-                            practice" normally means open their own firm/ studio (with partners). This part focus on the
-                            period between they received their first architecture degree and established their own
-                            practice, during which many of them chose to continue their education, or worked for other
-                            architects, or taught in the university, or traveled around the world. Among 48 laureates,
-                            only 1988 and 1990 laureates, Gordon Bunshaft and Aldo Rossi never established their own
-                            firm/ studio.
-                        </p>
-                        <p id="updatedIntro_wonTime" class="updatedIntro">
-                            (The numbers means the number of years it takes) Every laureate has its unique contribution
-                            to architecture, no matter whether received the Pritzker Architecture Prize. Some laureates
-                            established their names in the field a long time before receiving the Pritzker Architecture
-                            Prize. Some laureates spent many years to improve themselves before establishing their own
-                            practice in the field. Therefore, this section is not to compare the time it takes to become
-                            a laureate but encourage readers to think about the story behind the numbers.
-                        </p>
-                    </div>
-
-
-                    <div class="updatedInfo_detailed">
-                        <!-- <h3 id="updatedInfo_name" class="updatedInfo_name"></h3> -->
-                        <div id="divOfEducation_2"></div>
-                        <p id="education_11d" class="education universityName"></p>
-                        <p id="education_12d" class="education additionInfo"></p>
-
-                        <p id="education_21d" class="education universityName"></p>
-                        <p id="education_22d" class="education additionInfo"></p>
-
-                        <p id="education_31d" class="education universityName"></p>
-                        <p id="education_32d" class="education additionInfo"></p>
-
-                        <div id="ThingsDone_1"></div>
-                        <div id="ThingsDone_2"></div>
-                        <div id="ThingsDone_3"></div>
-                        <p id="esPractice"></p>
-
-                    </div>
-                </div>
+              <!-- career -->
+              <p id="updatedIntro_career" class="updatedIntro">
+                To a great extents, the career of an architect is built up by
+                his or her architecture projects in the real context. But this
+                section won't include contents about their projects, but other
+                career-related aspects, like other career they had considered,
+                the trips and figures important to their works, when did they
+                won one of the world's premier professional recognition, and
+                etc.
+              </p>
+              <p id="updatedIntro_otherCareer" class="updatedIntro">
+                Not all the Master Architects want to make "architecture" their
+                life-long pursue from the very beginning. Among the laureates of
+                the Pritzker Architecture Prize, some of them had thought about
+                <span class="hightLightedTexts orange"
+                  >following their father's profession,</span
+                >
+                some of them had
+                <span class="hightLightedTexts red"
+                  >learned other subjects</span
+                >
+                in the undergraduate, and some of them even had been quite
+                successful in
+                <span class="hightLightedTexts blue">the career before.</span>
+                In this part, let's take a look of the other career they had
+                considered.
+              </p>
+              <p id="updatedIntro_travel" class="updatedIntro">
+                Traveling can make a big impact to architects. Some laureates
+                took a number of trips while studied and worked in other
+                countries, some traveled to see
+                <span class="hightLightedTexts blue"
+                  >the works of the architects they admired,</span
+                >
+                and some got the opportunity to
+                <span class="hightLightedTexts green"
+                  >meet and even work with these Master Architects</span
+                >
+                during the stay. However, some architects, like 2010 laureates,
+                Kazuyo Sejim, were described by the critics as "the generation
+                of architects trained by television and video".
+              </p>
+              <p id="updatedIntro_age" class="updatedIntro">
+                As the award that's often referred to as the Nobel Prize of
+                architecture, many laureates had passed their middle age when
+                they won the Pritzker Architecture Prize. Since 1979, the
+                youngest is 2010 laureate, Ryue Nishizawa at age 44, and the
+                oldest is 2018 laureate, B.V. Doshi at age 90. And the average
+                age of the laureates is 63 (round to the nearest integer).
+              </p>
+              <p id="updatedIntro_work" class="updatedIntro">
+                Working together can bring architects opportunities to learn
+                from each other. While most Master Architects have their unique
+                perspective of architecture and working style, had those
+                influenced by someone else? It would be interesting to see which
+                of these laureates had worked together, which might have impact
+                on their own career.
+              </p>
+              <p id="updatedIntro_esTime" class="updatedIntro">
+                (The "numbers" in the grids stand for the years it took) For
+                architects, "establish one's own practice" normally means open
+                their own firm/ studio (with partners). This part focus on the
+                period between they received their first architecture degree and
+                established their own practice, during which some of them chose
+                <span class="hightLightedTexts red">
+                  further study in the college</span
+                >, or
+                <span class="hightLightedTexts blue"
+                  >worked for other architects</span
+                >, or
+                <span class="hightLightedTexts green">traveled around</span>, or
+                <span class="hightLightedTexts orange"
+                  >taught in the university</span
+                >.
+              </p>
+              <p id="updatedIntro_wonTime" class="updatedIntro">
+                (The "numbers" in the grids stand for the years it took) Every
+                laureate has its unique contribution to architecture, no matter
+                whether received the Pritzker Architecture Prize. Some laureates
+                established their names in the field a long time before
+                receiving the Pritzker Architecture Prize. And some laureates
+                spent many years to improve themselves before establishing their
+                own practice. Therefore, this section is not to compare the time
+                it takes to become a laureate but encourage readers to explore
+                the story behind the numbers.
+              </p>
             </div>
 
-            <div id="portraitsContainer" class="portraits">
+            <div
+              id="divOfUpdatedInfo_detailed"
+              class="DivOfUpdatedInfo_detailed"
+            >
+              <div id="divOfEducationAbroad"></div>
+              <p id="defaultTexts" class="defaultTexts"></p>
+
+              <!-- where did they receive the training to be an architect? -->
+              <p id="educationAbroad_O" class="otherTexts"></p>
+              <p id="education_U1" class="education universityName"></p>
+              <p id="education_A1" class="education additionInfo"></p>
+
+              <p id="education_U2" class="education universityName"></p>
+              <p id="education_A2" class="education additionInfo"></p>
+
+              <p id="education_U3" class="education universityName"></p>
+              <p id="education_A3" class="education additionInfo"></p>
+
+              <!-- otherCareer -->
+              <p id="otherCareer_O1" class="otherTexts"></p>
+              <p id="otherCareer_role1_r" class="hightLightedTexts red"></p>
+              <p id="otherCareer_role1_b" class="hightLightedTexts blue"></p>
+              <p id="otherCareer_role1_g" class="hightLightedTexts orange"></p>
+              <p id="otherCareer_O2" class="otherTexts"></p>
+              <p id="otherCareer_role2_r" class="hightLightedTexts red"></p>
+              <p id="otherCareer_role2_b" class="hightLightedTexts blue"></p>
+
+              <!-- travel -->
+              <p id="travel_O1" class="otherTexts"></p>
+              <p id="travel_location1" class="hightLightedTexts red"></p>
+              <p id="travel_O2" class="otherTexts"></p>
+              <p id="travel_works" class="hightLightedTexts blue"></p>
+              <p id="travel_O3" class="otherTexts"></p>
+              <p id="travel_figures" class="hightLightedTexts green"></p>
+              <p id="travel_O4" class="otherTexts"></p>
+              <p id="travel_location2" class="hightLightedTexts red"></p>
+              <p id="travel_O5" class="otherTexts"></p>
+
+              <!-- what did they do after receiving the first architecture degree? -->
+              <p id="ThingsDone_studied" class="hightLightedTexts red"></p>
+              <p id="ThingsDone_worked" class="hightLightedTexts blue"></p>
+              <p id="ThingsDone_traveled" class="hightLightedTexts green"></p>
+              <p id="ThingsDone_taught" class="hightLightedTexts orange"></p>
+              <p id="ThingsDone_O1" class="otherTexts"></p>
             </div>
+          </div>
         </div>
+
+        <div id="portraitsContainer" class="portraits"></div>
+      </div>
     </section>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="newnew.js"></script>
-</body>
-
+  </body>
 </html>

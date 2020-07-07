@@ -17,8 +17,9 @@ d3.csv("data.csv").then(function (dataset) {
     // questions about education
     const questionsDict_education = {
         default: "Select a question about Education...",
-        education_1: "Did they learn architecture design in the college?",
-        education_2: "Did they learn architecture design in the college abroad?",
+        educationGeneral: "Did they receive degrees in architecture?",
+        educationDegree: "What is the highest degree they received?",
+        educationAbroad: "Did they learn architecture design in the college abroad?",
         teach: "Had they taught in the colleges?",
 
     }
@@ -28,12 +29,12 @@ d3.csv("data.csv").then(function (dataset) {
     // questions about prize
     const questionsDict_career = {
         default: "Select a question about Career...",
-        education_3: "Did they consider other careers before becoming an architect?",
-        travel: "Were there some trips that had big impacts to their career?",
-        age: "How old were they when they won the prize?",
-        work: "Did they work with other winners?",
+        otherCareer: "Did they consider other careers before becoming an architect?",
+        travel: "Were there some important trips mentioned in their biography?",
+        work: "Did they work with/for other laureates?",
         esTime: "When did they establish their own practice after graduation?",
         wonTime: "When did they receive the prize after starting their own practice?",
+        age: "How old were they when they won the prize?",
     }
 
     const questions_career = Object.values(questionsDict_career)
@@ -61,11 +62,13 @@ d3.csv("data.csv").then(function (dataset) {
     const introOfLife = d3.select("#updatedIntro_life");
     const introOfEducation = d3.select("#updatedIntro_education")
     const introOfCareer = d3.select("#updatedIntro_career")
+    const divOfUpdatedInfo_detailed = d3.select("#divOfUpdatedInfo_detailed")
     introOfLife.style("visibility", "visible");
 
     var selectedCategory = "life";
     function UpdateQuestionGroup() {
         ResetImgGallery();
+        ResetHoverOverInfo();
         
         architect.attr("class", "architect")
 
@@ -123,11 +126,14 @@ d3.csv("data.csv").then(function (dataset) {
             introOfCareer.style("visibility", "visible");
         }
         function ResetImgGallery() {
-            d3.select("#education_11d").text("")
+            defaultTexts.text("")
             pictures
               .attr("class", "otherProperty default")
               .attr("src", d => "img/default/" + d.default + ".png")
             SelectedQuestion = "default"
+        }
+        function ResetHoverOverInfo() {
+            divOfUpdatedInfo_detailed.attr("class", "DivOfUpdatedInfo_detailed")
         }
     }
 
@@ -137,6 +143,14 @@ d3.csv("data.csv").then(function (dataset) {
 
     //#region results of OptionChanged
     var SelectedQuestion;
+    const questionsWithMoreInfo = [
+        "educationGeneral",
+        "educationAbroad",
+        "otherCareer",
+        "travel",
+        "work",
+        "esTime",
+    ]
     function updateGridImages() {
 
         // get the "value" of the selected option
@@ -164,24 +178,15 @@ d3.csv("data.csv").then(function (dataset) {
         } else {
             architect.attr("class", "Architect")
         }
-        // update Intro
-        const questionsWithMoreInfo = [
-            "education_1",
-            "education_2",
-            "education_3",
-            "travel",
-            "work",
-            "esTime",
-        ]
+        
         if ($.inArray(selectedQuestion, questionsWithMoreInfo) != -1) {
-            d3.select("#education_11d")
-                .text("Hover over the images to learn more info...")
+            divOfUpdatedInfo_detailed.attr("class", "divOfUpdatedInfo_detailed")
+            defaultTexts.text(textsOfDefault)
             } else {
-            d3.select("#education_11d")
-                .text("")
+            defaultTexts.text("")
+            divOfUpdatedInfo_detailed.attr("class", "DivOfUpdatedInfo_detailed")
         }
     }
-
     function update(selectedOption) {
         pictures
             .attr("class", "otherProperty " + selectedOption)
@@ -222,7 +227,49 @@ d3.csv("data.csv").then(function (dataset) {
     //#endregion
 
     //#region results of ImgHovered 
+    //#region selectUpdatedArea
+    // educationGeneral & educationAbroad
+    const textsOfDefault = "Hover over to learn more info ..."
+    const defaultTexts = d3.select("#defaultTexts").text("")
+    const education_U1 = d3.select("#education_U1").data(dataset)
+    const education_A1 = d3.select("#education_A1").data(dataset)
+    const education_U2 = d3.select("#education_U2").data(dataset)
+    const education_A2 = d3.select("#education_A2").data(dataset)
+    const education_U3 = d3.select("#education_U3").data(dataset)
+    const education_A3 = d3.select("#education_A3").data(dataset)
+    const education_O = d3.select("#educationAbroad_O").data(dataset)
+    const educationArray = [education_U1,education_U2, education_U3, education_A1, education_A2, education_A3, education_O]
+    // otherCareer
+    const otherCareer_O1 = d3.select("#otherCareer_O1").data(dataset)
+    const otherCareer_role1_r = d3.select("#otherCareer_role1_r").data(dataset)
+    const otherCareer_role1_b = d3.select("#otherCareer_role1_b").data(dataset)
+    const otherCareer_role1_g = d3.select("#otherCareer_role1_g").data(dataset)
+    const otherCareer_O2 = d3.select("#otherCareer_O2").data(dataset)
+    const otherCareer_role2_r = d3.select("#otherCareer_role2_r").data(dataset)
+    const otherCareer_role2_b = d3.select("#otherCareer_role2_b").data(dataset)
+    const otherCareerArray = [otherCareer_O1, otherCareer_O2, otherCareer_role1_r, otherCareer_role1_b, otherCareer_role1_g, otherCareer_role2_r, otherCareer_role2_b]
+    // travel
+    const travel_O1 = d3.select("#travel_O1").data(dataset)
+    const travel_location1 = d3.select("#travel_location1").data(dataset)
+    const travel_O2 = d3.select("#travel_O2").data(dataset)
+    const travel_works = d3.select("#travel_works").data(dataset)
+    const travel_O3 = d3.select("#travel_O3").data(dataset)
+    const travel_figures = d3.select("#travel_figures").data(dataset)
+    const travel_O4 = d3.select("#travel_O4").data(dataset)
+    const travel_location2 = d3.select("#travel_location2").data(dataset)
+    const travel_O5 = d3.select("#travel_O5").data(dataset)
+    const travelArray = [travel_O1, travel_O2, travel_O3, travel_O4, travel_O5, travel_location1, travel_location2, travel_works, travel_figures]
+    // esTime
+    const thingsDone_studied = d3.select("#ThingsDone_studied").data(dataset)
+    const thingsDone_worked = d3.select("#ThingsDone_worked").data(dataset)
+    const thingsDone_traveled = d3.select("#ThingsDone_traveled").data(dataset)
+    const thingsDone_taught = d3.select("#ThingsDone_taught").data(dataset)
+    const thingsDone_O1 = d3.select("#ThingsDone_O1").data(dataset)
+    const thingsDoneArray = [thingsDone_studied, thingsDone_worked, thingsDone_traveled, thingsDone_taught, thingsDone_O1]
+    //#endregion
     const workTogetherDict = {
+        2: "2019",
+        9: "2014",
         10: "2013",
         12: "2011",
         13: "2010_1",
@@ -237,21 +284,6 @@ d3.csv("data.csv").then(function (dataset) {
         29: "1996",
         33: "1992",
     }
-    const education_2imgArray = [
-        "img8",
-        "img7",
-        "img9",
-        "img15",
-        "img17",
-        "img20",
-        "img25",
-        "img26",
-        "img32",
-        "img34",
-        "img41",
-        "img43",
-        "img44",
-    ]
     const keys_workTogether = Object.keys(workTogetherDict)
     const newWorkTogetherArray = [];
     var i;
@@ -266,7 +298,6 @@ d3.csv("data.csv").then(function (dataset) {
     var ImgRelated_2;
     var ImgRelatedPath_1;
     var ImgRelatedPath_2;
-    const originalImgPath = "img/work/Y.png"
 
     function ShowInfo(d) {
         var imgPath = d3.select(this).property("src");
@@ -282,16 +313,20 @@ d3.csv("data.csv").then(function (dataset) {
 
         if (SelectedQuestion == "work" && $.inArray(imgId, newWorkTogetherArray) != -1) {
             switch (imgId) {
+                // 2019 & 2014
+                case "img9":
+                    ImgRelated_1 = "2";
+                    break;
                 // 2013 & 2010
                 case "img10":
                     ImgRelated_1 = "13";
-                    ImgRelated_2 = "14";
                     break;
                 case "img13":
                     ImgRelated_1 = "10";
+                    ImgRelated_2 = "14";
                     break;
                 case "img14":
-                    ImgRelated_1 = "10";
+                    ImgRelated_2 = "13";
                     break;
                     // 2011 & 1992
                 case "img12":
@@ -343,64 +378,75 @@ d3.csv("data.csv").then(function (dataset) {
 
         }
 
-        if (SelectedQuestion == "education_1") {
-            // d3.select("#updatedInfo_name")
-            //   .data(dataset)
-            //   .text(d.name + "had studied in")
-
-            d3.select("#education_11d")
-                .data(dataset)
-                .text(">> " + d.education_1_11d)
-            d3.select("#education_12d")
-                .data(dataset)
-                .text(d.education_1_12d)
-            d3.select("#education_21d")
-                .data(dataset)
-                .text(d.education_1_21d)
-            d3.select("#education_22d")
-                .data(dataset)
-                .text(d.education_1_22d)
-            d3.select("#education_31d")
-                .data(dataset)
-                .text(d.education_1_31d)
-            d3.select("#education_32d")
-                .data(dataset)
-                .text(d.education_1_32d)
-        } else if (SelectedQuestion == "education_2") {
-
-            if ($.inArray(imgId, education_2imgArray) != -1) {
-                d3.select("#divOfEducation_2")
-                    .append("img")
-                    .attr("id", "education_2img")
-                    .attr("class", "education_2img")
-
-                d3.select("#education_2img")
-                    .data(dataset)
-                    .attr("src", "img/education_2img/" + d.education_2img + ".png")
+        // extract more info by hovering over
+        if (SelectedQuestion == "educationGeneral") {
+            defaultTexts.text("")
+            education_U1.text(">> " + d.educationGeneral_U1)
+            education_A1.text(d.educationGeneral_A1)
+            education_U2.text(d.educationGeneral_U2)
+            education_A2.text(d.educationGeneral_A2)
+            education_U3.text(d.educationGeneral_U3)
+            education_A3.text(d.educationGeneral_A3)
+        } 
+        else if (SelectedQuestion == "educationAbroad") 
+        {
+            defaultTexts.text("")
+            checkEducationAbroad(d.educationAbroad_img)
+            function checkEducationAbroad(data) {
+                if (data != ""){
+                    educationAbroad_img = d3.select("#divOfEducationAbroad")
+                       .append("img")
+                         .attr("id", "educationAbroad_img")
+                         .attr("class", "educationAbroad_img")
+                    educationAbroad_img
+                        .data(dataset)
+                        .attr("src", "img/educationAbroad_img/" + data + ".png")
+                }
             }
+            education_O.text(d.educationAbroad_O)
+            if (d.educationAbroad_U1 != ""){
+                education_U1.text(">> " + d.educationAbroad_U1)
+            }
+            education_A1.text(d.educationAbroad_A1)
+            education_U2.text(d.educationAbroad_U2)
+            education_A2.text(d.educationAbroad_A2)
+            education_U3.text(d.educationAbroad_U3)
+            education_A3.text(d.educationAbroad_A3)
 
-
-            d3.select("#education_11d")
-                .data(dataset)
-                .text(d.education_2_11d)
-            d3.select("#education_12d")
-                .data(dataset)
-                .text(d.education_2_12d)
-            d3.select("#education_21d")
-                .data(dataset)
-                .text(d.education_2_21d)
-            d3.select("#education_22d")
-                .data(dataset)
-                .text(d.education_2_22d)
-            d3.select("#education_31d")
-                .data(dataset)
-                .text(d.education_2_31d)
-            d3.select("#education_32d")
-                .data(dataset)
-                .text(d.education_2_32d)
+        } 
+        else if (SelectedQuestion == "otherCareer") 
+        {
+            defaultTexts.text("")
+            otherCareer_O1.text(d.otherCareer_O1)
+            otherCareer_role1_r.text(d.otherCareer_role1_r)
+            otherCareer_role1_b.text(d.otherCareer_role1_b)
+            otherCareer_role1_g.text(d.otherCareer_role1_g)
+            otherCareer_O2.text(d.otherCareer_O2)
+            otherCareer_role2_r.text(d.otherCareer_role2_r)
+            otherCareer_role2_b.text(d.otherCareer_role2_b)
         }
-
-        //console.log(this)
+        else if (SelectedQuestion == "travel") 
+        {
+          defaultTexts.text("")
+          travel_O1.text(d.travel_O1)
+          travel_location1.text(d.travel_location1)
+          travel_O2.text(d.travel_O2)
+          travel_works.text(d.travel_works)
+          travel_O3.text(d.travel_O3)
+          travel_figures.text(d.travel_figures)
+          travel_O4.text(d.travel_O4)
+          travel_location2.text(d.travel_location2)
+          travel_O5.text(d.travel_O5)
+        }
+        else if (SelectedQuestion == "esTime") 
+        {
+          defaultTexts.text("")
+          thingsDone_studied.text(d.thingsDone_studied)
+          thingsDone_worked.text(d.thingsDone_worked)
+          thingsDone_traveled.text(d.thingsDone_traveled)
+          thingsDone_taught.text(d.thingsDone_taught)
+          thingsDone_O1.text(d.thingsDone_O1) 
+        }  
     }
 
     function DismissInfo(d) {
@@ -409,43 +455,37 @@ d3.csv("data.csv").then(function (dataset) {
         // dismiss img 
         d3.select("#img" + index(d))
             .attr("src", ImgPath)
+        const yImgPath = "img/work/N.png"
         if (SelectedQuestion == "work") {
+
+            if (ImgId == "img9"){
             d3.select("#img" + ImgRelated_1)
-                .attr("src", originalImgPath);
+                .attr("src", yImgPath);
             d3.select("#img" + ImgRelated_2)
-                .attr("src", originalImgPath);
+                .attr("src", yImgPath);  
+            } else {
+            d3.select("#img" + ImgRelated_1)
+                .attr("src", ImgPath);
+            d3.select("#img" + ImgRelated_2)
+                .attr("src", ImgPath);
+            }
         }
-        if (SelectedQuestion == "education_1" || SelectedQuestion == "education_2") {
-
-            d3.select("#education_2img")
-                .data(dataset)
-                .attr("src", "")
-            d3.select("#education_11d")
-                .data(dataset)
-                .text("Hover over the images to learn more info...")
-            d3.select("#education_12d")
-                .data(dataset)
-                .text("")
-            d3.select("#education_21d")
-                .data(dataset)
-                .text("")
-            d3.select("#education_22d")
-                .data(dataset)
-                .text("")
-            d3.select("#education_31d")
-                .data(dataset)
-                .text("")
-            d3.select("#education_32d")
-                .data(dataset)
-                .text("")
-
-            d3.select("#education_2img")
-                .remove()
+        if ($.inArray(SelectedQuestion, questionsWithMoreInfo) != -1) {
+            d3.select("#educationAbroad_img").remove();
+            educationArray.forEach(removeTexts);
+            otherCareerArray.forEach(removeTexts);
+            travelArray.forEach(removeTexts);
+            thingsDoneArray.forEach(removeTexts);
+            defaultTexts.text(textsOfDefault);
+    
+            function removeTexts(element){
+                element.text("")
+            }
         }
         ImgRelated_1 = null;
         ImgRelated_2 = null;
-
     }
+
     //#endregion
 
     //#region BuildingTooltip
