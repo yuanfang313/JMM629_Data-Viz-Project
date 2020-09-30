@@ -4,4 +4,4 @@
 
 * [The Second Assignment_My resume](https://yuanfang313.github.io/JMM629_Data-Viz-Project/homework/SecondAssignment_css_resume/index.html)
 
-* [Project Update](https://yuanfang313.github.io/JMM629_Data-Viz-Project/project/index.html)
+* [Project Update](https://yuanfang313.github.io/JMM629_Data-Viz-Project/project2/index.html)
