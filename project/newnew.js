@@ -66,10 +66,11 @@ d3.csv("data.csv").then(function (dataset) {
     introOfLife.style("visibility", "visible");
 
     var selectedCategory = "life";
+
     function UpdateQuestionGroup() {
         ResetImgGallery();
         ResetHoverOverInfo();
-        
+
         architect.attr("class", "architect")
 
         var SelectedCategory = d3.select(this).property("value")
@@ -90,7 +91,7 @@ d3.csv("data.csv").then(function (dataset) {
             questionSelect_life.on("change", updateGridImages);
             CleanIntro();
             introOfLife.style("visibility", "visible");
-            
+
 
         } else if (SelectedCategory == "education") {
             $("option").remove(".option_update");
@@ -125,13 +126,15 @@ d3.csv("data.csv").then(function (dataset) {
             CleanIntro();
             introOfCareer.style("visibility", "visible");
         }
+
         function ResetImgGallery() {
             defaultTexts.text("")
             pictures
-              .attr("class", "otherProperty default")
-              .attr("src", d => "img/default/" + d.default + ".png")
+                .attr("class", "otherProperty default")
+                .attr("src", d => "img/default/" + d.default+".png")
             SelectedQuestion = "default"
         }
+
         function ResetHoverOverInfo() {
             divOfUpdatedInfo_detailed.attr("class", "DivOfUpdatedInfo_detailed")
         }
@@ -151,17 +154,18 @@ d3.csv("data.csv").then(function (dataset) {
         "work",
         "esTime",
     ]
+
     function updateGridImages() {
 
         // get the "value" of the selected option
         var selectedQuestion = d3.select(this).property("value")
         CleanIntro();
-        if (selectedQuestion == "default"){
-            if (selectedCategory == "life"){
+        if (selectedQuestion == "default") {
+            if (selectedCategory == "life") {
                 introOfLife.style("visibility", "visible");
-            } else if (selectedCategory == "education"){
+            } else if (selectedCategory == "education") {
                 introOfEducation.style("visibility", "visible");
-            } else if (selectedCategory == "career"){
+            } else if (selectedCategory == "career") {
                 introOfCareer.style("visibility", "visible");
             }
         } else {
@@ -178,15 +182,16 @@ d3.csv("data.csv").then(function (dataset) {
         } else {
             architect.attr("class", "Architect")
         }
-        
+
         if ($.inArray(selectedQuestion, questionsWithMoreInfo) != -1) {
             divOfUpdatedInfo_detailed.attr("class", "divOfUpdatedInfo_detailed")
             defaultTexts.text(textsOfDefault)
-            } else {
+        } else {
             defaultTexts.text("")
             divOfUpdatedInfo_detailed.attr("class", "DivOfUpdatedInfo_detailed")
         }
     }
+
     function update(selectedOption) {
         pictures
             .attr("class", "otherProperty " + selectedOption)
@@ -221,7 +226,7 @@ d3.csv("data.csv").then(function (dataset) {
         .enter().append('img')
         .attr("class", "otherProperty default")
         .attr("id", d => "img" + d.index)
-        .attr("src", d => "img/" + keys_life[0] + "/" + d.default + ".png")
+        .attr("src", d => "img/" + keys_life[0] + "/" + d.default+".png")
         .on("mouseenter", ShowInfo)
         .on("mouseout", DismissInfo);
     //#endregion
@@ -238,7 +243,7 @@ d3.csv("data.csv").then(function (dataset) {
     const education_U3 = d3.select("#education_U3").data(dataset)
     const education_A3 = d3.select("#education_A3").data(dataset)
     const education_O = d3.select("#educationAbroad_O").data(dataset)
-    const educationArray = [education_U1,education_U2, education_U3, education_A1, education_A2, education_A3, education_O]
+    const educationArray = [education_U1, education_U2, education_U3, education_A1, education_A2, education_A3, education_O]
     // otherCareer
     const otherCareer_O1 = d3.select("#otherCareer_O1").data(dataset)
     const otherCareer_role1_r = d3.select("#otherCareer_role1_r").data(dataset)
@@ -309,7 +314,7 @@ d3.csv("data.csv").then(function (dataset) {
         d3.select("#tooltip" + index(d)).style("opacity", 0.9);
         // show photo
         d3.select("#img" + index(d))
-            .attr("src", "img/default/" + d.default + ".png")
+            .attr("src", "img/default/" + d.default+".png")
 
         if (SelectedQuestion == "work" && $.inArray(imgId, newWorkTogetherArray) != -1) {
             switch (imgId) {
@@ -317,7 +322,7 @@ d3.csv("data.csv").then(function (dataset) {
                 case "img9":
                     ImgRelated_1 = "2";
                     break;
-                // 2013 & 2010
+                    // 2013 & 2010
                 case "img10":
                     ImgRelated_1 = "13";
                     break;
@@ -387,24 +392,23 @@ d3.csv("data.csv").then(function (dataset) {
             education_A2.text(d.educationGeneral_A2)
             education_U3.text(d.educationGeneral_U3)
             education_A3.text(d.educationGeneral_A3)
-        } 
-        else if (SelectedQuestion == "educationAbroad") 
-        {
+        } else if (SelectedQuestion == "educationAbroad") {
             defaultTexts.text("")
             checkEducationAbroad(d.educationAbroad_img)
+
             function checkEducationAbroad(data) {
-                if (data != ""){
+                if (data != "") {
                     educationAbroad_img = d3.select("#divOfEducationAbroad")
-                       .append("img")
-                         .attr("id", "educationAbroad_img")
-                         .attr("class", "educationAbroad_img")
+                        .append("img")
+                        .attr("id", "educationAbroad_img")
+                        .attr("class", "educationAbroad_img")
                     educationAbroad_img
                         .data(dataset)
                         .attr("src", "img/educationAbroad_img/" + data + ".png")
                 }
             }
             education_O.text(d.educationAbroad_O)
-            if (d.educationAbroad_U1 != ""){
+            if (d.educationAbroad_U1 != "") {
                 education_U1.text(">> " + d.educationAbroad_U1)
             }
             education_A1.text(d.educationAbroad_A1)
@@ -413,9 +417,7 @@ d3.csv("data.csv").then(function (dataset) {
             education_U3.text(d.educationAbroad_U3)
             education_A3.text(d.educationAbroad_A3)
 
-        } 
-        else if (SelectedQuestion == "otherCareer") 
-        {
+        } else if (SelectedQuestion == "otherCareer") {
             defaultTexts.text("")
             otherCareer_O1.text(d.otherCareer_O1)
             otherCareer_role1_r.text(d.otherCareer_role1_r)
@@ -424,29 +426,25 @@ d3.csv("data.csv").then(function (dataset) {
             otherCareer_O2.text(d.otherCareer_O2)
             otherCareer_role2_r.text(d.otherCareer_role2_r)
             otherCareer_role2_b.text(d.otherCareer_role2_b)
+        } else if (SelectedQuestion == "travel") {
+            defaultTexts.text("")
+            travel_O1.text(d.travel_O1)
+            travel_location1.text(d.travel_location1)
+            travel_O2.text(d.travel_O2)
+            travel_works.text(d.travel_works)
+            travel_O3.text(d.travel_O3)
+            travel_figures.text(d.travel_figures)
+            travel_O4.text(d.travel_O4)
+            travel_location2.text(d.travel_location2)
+            travel_O5.text(d.travel_O5)
+        } else if (SelectedQuestion == "esTime") {
+            defaultTexts.text("")
+            thingsDone_studied.text(d.thingsDone_studied)
+            thingsDone_worked.text(d.thingsDone_worked)
+            thingsDone_traveled.text(d.thingsDone_traveled)
+            thingsDone_taught.text(d.thingsDone_taught)
+            thingsDone_O1.text(d.thingsDone_O1)
         }
-        else if (SelectedQuestion == "travel") 
-        {
-          defaultTexts.text("")
-          travel_O1.text(d.travel_O1)
-          travel_location1.text(d.travel_location1)
-          travel_O2.text(d.travel_O2)
-          travel_works.text(d.travel_works)
-          travel_O3.text(d.travel_O3)
-          travel_figures.text(d.travel_figures)
-          travel_O4.text(d.travel_O4)
-          travel_location2.text(d.travel_location2)
-          travel_O5.text(d.travel_O5)
-        }
-        else if (SelectedQuestion == "esTime") 
-        {
-          defaultTexts.text("")
-          thingsDone_studied.text(d.thingsDone_studied)
-          thingsDone_worked.text(d.thingsDone_worked)
-          thingsDone_traveled.text(d.thingsDone_traveled)
-          thingsDone_taught.text(d.thingsDone_taught)
-          thingsDone_O1.text(d.thingsDone_O1) 
-        }  
     }
 
     function DismissInfo(d) {
@@ -458,16 +456,16 @@ d3.csv("data.csv").then(function (dataset) {
         const yImgPath = "img/work/N.png"
         if (SelectedQuestion == "work") {
 
-            if (ImgId == "img9"){
-            d3.select("#img" + ImgRelated_1)
-                .attr("src", yImgPath);
-            d3.select("#img" + ImgRelated_2)
-                .attr("src", yImgPath);  
+            if (ImgId == "img9") {
+                d3.select("#img" + ImgRelated_1)
+                    .attr("src", yImgPath);
+                d3.select("#img" + ImgRelated_2)
+                    .attr("src", yImgPath);
             } else {
-            d3.select("#img" + ImgRelated_1)
-                .attr("src", ImgPath);
-            d3.select("#img" + ImgRelated_2)
-                .attr("src", ImgPath);
+                d3.select("#img" + ImgRelated_1)
+                    .attr("src", ImgPath);
+                d3.select("#img" + ImgRelated_2)
+                    .attr("src", ImgPath);
             }
         }
         if ($.inArray(SelectedQuestion, questionsWithMoreInfo) != -1) {
@@ -477,8 +475,8 @@ d3.csv("data.csv").then(function (dataset) {
             travelArray.forEach(removeTexts);
             thingsDoneArray.forEach(removeTexts);
             defaultTexts.text(textsOfDefault);
-    
-            function removeTexts(element){
+
+            function removeTexts(element) {
                 element.text("")
             }
         }
