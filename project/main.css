@@ -4,24 +4,20 @@
 
 /* header section */
 .grid-container.header {
-  display: grid;
-  grid-template-columns: 10% 90%;
-  margin-left: 2%;
+  display: flex;
+  justify-content: center;
+  /* grid-template-columns: 10% 90%; */
+  
 }
-
+.centerContainer {
+  max-width: 960px;
+}
 .grid-item {
   background-color: white;
 }
 
-.titleImg {
-  width: 120px;
-}
-
-.grid-item.text {
-  margin-left: 40px;
-}
-
 .titleText {
+  /* text-align: center; */
   margin-top: 0px;
   margin-bottom: 25px;
   font-family: "Squada One", cursive;
@@ -31,7 +27,7 @@
 }
 
 .intro {
-  padding-right: 10%;
+  
   margin-bottom: 0rem;
   font-family: 'Montaga', serif;
   font-size: 1rem;
@@ -49,13 +45,22 @@
 }
 
 .filters {
-  margin: 0rem 10%;
-  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  margin: 2% auto;
+  margin-top: 10px;
+}
+
+.questionLine {
+  width: 60%;
 }
 
 .portraits {
-  padding: 2% 4.7%;
+  display: flex;
+  justify-content: center;
+  /* padding: 2% auto; */
   padding-bottom: 0rem;
+  
 }
 
 .grid-container.selectBox {
@@ -110,10 +115,7 @@ select {
 }
 
 /* dropDownBox */
-.questionLine {
-  width: 60%;
-  margin-left: 0rem;
-}
+
 
 .divOfUpdatedIntro {
   position: relative;
@@ -124,15 +126,16 @@ select {
   position: relative;
   margin-top: 0.6rem;
   border-left: 5px solid rgb(226, 6, 6);
-  padding-left: 10px;
+  
   height: 25px;
 }
 
 .updatedIntro {
   position: absolute;
-  margin-top: 1.5rem;
+  max-width: 960px;
+  margin-top: 1rem;
+  padding-left: 1rem;
   border-left: 5px solid #678bc7;
-  padding-left: 10px;
   font-family: 'Montaga', serif;
   font-size: 1rem;
   color: #084177;
@@ -291,6 +294,10 @@ img {
   transform: skew(-10deg);
 }
 
+#section {
+  max-width: 1024px; 
+}
+
 #section:hover>.architect {
   opacity: 1;
 }
@@ -298,6 +305,10 @@ img {
 #section:hover>.architect:not(:hover) {
   opacity: 0.6;
   /* filter: grayscale(1); */
+}
+
+.section {
+  justify-content: center;
 }
 
 .otherProperty.default {
@@ -309,6 +320,10 @@ img {
 
 
 @media only screen and (min-width: 1441px) {
+  #section {
+    max-width: 1024px; 
+  }
+
   .grid-item.portraits {
     padding: 2% 5%;
   }
@@ -329,10 +344,10 @@ img {
     font-size: 1.1rem;
   }
 
-  img {
+  /* img {
     width: 120px;
     margin: 5px;
-  }
+  } */
 
   .divOfUpdatedImg {
     width: 100%;

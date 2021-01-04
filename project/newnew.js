@@ -211,7 +211,8 @@ d3.csv("data.csv").then(function (dataset) {
 
     let section = portraitsContainer
         .append("div")
-        .attr("id", "section");
+        .attr("id", "section")
+        .attr("class", "section");
 
     let architect = section.selectAll('div')
         .data(nest)
