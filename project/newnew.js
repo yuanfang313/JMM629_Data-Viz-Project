@@ -8,7 +8,7 @@ d3.csv("data.csv").then(function (dataset) {
         nation: "Where do they come from?",
         glass: "Do they wear glasses?",
         zodiac: "What are the zodiac signs of them?",
-        young: "What were they look like when they were young/ younger?",
+        young: "What were they looked like when they were young/ younger?",
         old: "Which of them had passed away?",
     }
     const questions_life = Object.values(questionsDict_life)

@@ -6,6 +6,7 @@
 .grid-container.header {
   display: flex;
   justify-content: center;
+  padding-top: 1%;
   /* grid-template-columns: 10% 90%; */
   
 }
@@ -18,16 +19,15 @@
 
 .titleText {
   /* text-align: center; */
-  margin-top: 0px;
   margin-bottom: 25px;
   font-family: "Squada One", cursive;
   font-weight: 500;
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #678bc7;
+  line-height: 3.5rem;
 }
 
 .intro {
-  
   margin-bottom: 0rem;
   font-family: 'Montaga', serif;
   font-size: 1rem;
@@ -48,7 +48,7 @@
   display: flex;
   justify-content: center;
   margin: 2% auto;
-  margin-top: 10px;
+  
 }
 
 .questionLine {
@@ -69,7 +69,7 @@
 }
 
 .divOfSelectBox {
-  margin-right: 15%;
+  margin-right: 20%;
   padding-left: 10px;
   display: inline;
   border-left: 5px solid rgb(245, 181, 5);
@@ -115,26 +115,23 @@ select {
 }
 
 /* dropDownBox */
-
-
 .divOfUpdatedIntro {
   position: relative;
   height: 100px;
+  margin-top: 1rem;
 }
 
 .divOfUpdatedInfo_detailed {
   position: relative;
   margin-top: 0.6rem;
   border-left: 5px solid rgb(226, 6, 6);
-  
+  padding-left: 0.8rem;
   height: 25px;
 }
 
 .updatedIntro {
-  position: absolute;
-  max-width: 960px;
-  margin-top: 1rem;
-  padding-left: 1rem;
+  position: absolute; 
+  padding-left: 0.8rem;
   border-left: 5px solid #678bc7;
   font-family: 'Montaga', serif;
   font-size: 1rem;
@@ -213,7 +210,7 @@ select {
 /* tooltip */
 .tooltip {
   position: absolute;
-  top: 20px;
+  top: 50px;
   left: -30px;
   width: 150px;
   border: 1px solid rgb(48, 48, 48);
@@ -250,7 +247,7 @@ select {
 
 img {
   display: inline;
-  width: 95px;
+  width: 90px;
   margin: 4px;
 }
 
@@ -266,7 +263,7 @@ img {
 }
 
 .otherProperty:hover~.tooltip {
-  top: 6px;
+  top: 50px;
   left: -25px;
   background: rgba(255, 255, 255, 0.9);
   transform: skew(0deg);
@@ -288,7 +285,7 @@ img {
 }
 
 .otherProperty.default:hover~.tooltip {
-  top: 20px;
+  top: 50px;
   left: -55px;
   box-shadow: 20px 10px 0px 3px rgba(241, 71, 71, 0.9);
   transform: skew(-10deg);
@@ -318,7 +315,6 @@ img {
 /* imgGallery */
 
 
-
 @media only screen and (min-width: 1441px) {
   #section {
     max-width: 1024px; 
@@ -332,17 +328,17 @@ img {
     margin-top: 25px;
   }
 
-  .tooltip {
+  /* .tooltip {
     width: 180px;
-  }
+  } */
 
-  .tooltipName {
+  /* .tooltipName {
     font-size: 1.2rem;
   }
 
   .tooltipYear {
     font-size: 1.1rem;
-  }
+  } */
 
   /* img {
     width: 120px;
@@ -365,8 +361,7 @@ img {
     font-size: 1rem;
   }
 }
-
-@media only screen and (min-width: 1800px) {
+/* @media only screen and (min-width: 1800px) {
   #header {
     margin: 1% 5%;
   }
@@ -378,4 +373,4 @@ img {
   img {
     margin: 8px;
   }
-}
+} */
